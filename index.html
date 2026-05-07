@@ -1,0 +1,665 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0a0e27" />
+    <title>Gahki — The Pocket POS that pays for itself</title>
+    <meta
+      name="description"
+      content="Gahki is a multi-tenant retail platform: instant POS billing on the counter, a shareable online store on WhatsApp. One inventory, two superpowers."
+    />
+    <meta property="og:title" content="Gahki — Pocket POS + Online Store" />
+    <meta
+      property="og:description"
+      content="Scan. Bill. Share. Sell online. Run your shop from your phone."
+    />
+    <meta property="og:type" content="website" />
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/styles.css" />
+  </head>
+  <body>
+    <!-- Animated background -->
+    <div class="bg-grid" aria-hidden="true"></div>
+    <div class="bg-orb bg-orb--1" aria-hidden="true"></div>
+    <div class="bg-orb bg-orb--2" aria-hidden="true"></div>
+    <div class="bg-orb bg-orb--3" aria-hidden="true"></div>
+
+    <!-- NAV -->
+    <header class="nav">
+      <a class="brand" href="#top" aria-label="Gahki home">
+        <span class="brand__mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" width="28" height="28">
+            <defs>
+              <linearGradient id="bm" x1="0" x2="1" y1="0" y2="1">
+                <stop offset="0" stop-color="#7cf5c8" />
+                <stop offset="1" stop-color="#4ea0ff" />
+              </linearGradient>
+            </defs>
+            <rect x="3" y="6" width="26" height="20" rx="5" fill="url(#bm)" />
+            <rect x="7" y="11" width="2" height="10" fill="#0a0e27" />
+            <rect x="11" y="11" width="1" height="10" fill="#0a0e27" />
+            <rect x="14" y="11" width="3" height="10" fill="#0a0e27" />
+            <rect x="19" y="11" width="1" height="10" fill="#0a0e27" />
+            <rect x="22" y="11" width="2" height="10" fill="#0a0e27" />
+          </svg>
+        </span>
+        <span class="brand__text">Gahki</span>
+      </a>
+
+      <nav class="nav__links" aria-label="Primary">
+        <a href="#features">Features</a>
+        <a href="#dual">Two apps, one shop</a>
+        <a href="#demo">Live demo</a>
+        <a href="#pricing">Pricing</a>
+      </nav>
+
+      <div class="nav__cta">
+        <a class="btn btn--ghost" href="https://bill.gahki.in" target="_blank" rel="noopener">Open POS</a>
+        <a class="btn btn--primary" href="#waitlist">Get started</a>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <section id="top" class="hero">
+      <div class="hero__copy">
+        <span class="eyebrow">
+          <span class="dot"></span> Built for India's small shops
+        </span>
+        <h1 class="hero__title">
+          The pocket POS that
+          <span class="title-grad">pays for itself.</span>
+        </h1>
+        <p class="hero__sub">
+          Scan the barcode. Print the bill. Share it on WhatsApp. Then let
+          customers re-order from your storefront — without lifting a finger.
+        </p>
+
+        <div class="hero__ctas">
+          <a class="btn btn--primary btn--lg" href="#waitlist">
+            Start free
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <a class="btn btn--ghost btn--lg" href="#demo">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path d="M8 5v14l11-7z" fill="currentColor"/>
+            </svg>
+            Watch live demo
+          </a>
+        </div>
+
+        <div class="hero__stats">
+          <div class="stat">
+            <div class="stat__num" data-count="48213">0</div>
+            <div class="stat__lbl">bills printed</div>
+          </div>
+          <div class="stat">
+            <div class="stat__num">
+              <span data-count="99">0</span><span class="stat__suffix">.9%</span>
+            </div>
+            <div class="stat__lbl">scan accuracy</div>
+          </div>
+          <div class="stat">
+            <div class="stat__num">
+              ₹<span data-count="0" data-target="0">0</span>
+            </div>
+            <div class="stat__lbl">forever free tier</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero visual: phone with live receipt -->
+      <div class="hero__visual" aria-hidden="true">
+        <div class="phone">
+          <div class="phone__notch"></div>
+          <div class="phone__screen">
+            <div class="phone__bar">
+              <span>Krishna Mart</span>
+              <span class="phone__bar__chip">POS</span>
+            </div>
+
+            <!-- Animated barcode scanner -->
+            <div class="scanner">
+              <svg class="scanner__barcode" viewBox="0 0 220 80" aria-hidden="true">
+                <g fill="#e8edff">
+                  <rect x="6"   y="10" width="3" height="50"/>
+                  <rect x="12"  y="10" width="1" height="50"/>
+                  <rect x="16"  y="10" width="4" height="50"/>
+                  <rect x="23"  y="10" width="2" height="50"/>
+                  <rect x="28"  y="10" width="1" height="50"/>
+                  <rect x="32"  y="10" width="5" height="50"/>
+                  <rect x="40"  y="10" width="2" height="50"/>
+                  <rect x="45"  y="10" width="1" height="50"/>
+                  <rect x="49"  y="10" width="3" height="50"/>
+                  <rect x="55"  y="10" width="2" height="50"/>
+                  <rect x="60"  y="10" width="4" height="50"/>
+                  <rect x="68"  y="10" width="1" height="50"/>
+                  <rect x="72"  y="10" width="3" height="50"/>
+                  <rect x="78"  y="10" width="2" height="50"/>
+                  <rect x="83"  y="10" width="5" height="50"/>
+                  <rect x="91"  y="10" width="1" height="50"/>
+                  <rect x="95"  y="10" width="3" height="50"/>
+                  <rect x="101" y="10" width="2" height="50"/>
+                  <rect x="106" y="10" width="4" height="50"/>
+                  <rect x="113" y="10" width="2" height="50"/>
+                  <rect x="118" y="10" width="1" height="50"/>
+                  <rect x="122" y="10" width="3" height="50"/>
+                  <rect x="128" y="10" width="2" height="50"/>
+                  <rect x="133" y="10" width="5" height="50"/>
+                  <rect x="141" y="10" width="1" height="50"/>
+                  <rect x="145" y="10" width="3" height="50"/>
+                  <rect x="151" y="10" width="2" height="50"/>
+                  <rect x="156" y="10" width="4" height="50"/>
+                  <rect x="163" y="10" width="2" height="50"/>
+                  <rect x="168" y="10" width="1" height="50"/>
+                  <rect x="172" y="10" width="3" height="50"/>
+                  <rect x="178" y="10" width="2" height="50"/>
+                  <rect x="183" y="10" width="5" height="50"/>
+                  <rect x="191" y="10" width="1" height="50"/>
+                  <rect x="195" y="10" width="3" height="50"/>
+                  <rect x="201" y="10" width="2" height="50"/>
+                  <rect x="206" y="10" width="4" height="50"/>
+                  <rect x="213" y="10" width="2" height="50"/>
+                </g>
+              </svg>
+              <div class="scanner__line"></div>
+              <div class="scanner__caption">scanning…</div>
+            </div>
+
+            <!-- Receipt -->
+            <div class="receipt">
+              <div class="receipt__head">
+                <strong>Krishna Mart</strong>
+                <small>Tax invoice · #INV-00214</small>
+              </div>
+              <div class="receipt__rows" id="receiptRows">
+                <div class="receipt__row"><span>Maggi 70g × 2</span><span>₹28</span></div>
+                <div class="receipt__row"><span>Amul Butter 100g</span><span>₹56</span></div>
+                <div class="receipt__row"><span>Britannia Bread</span><span>₹45</span></div>
+                <div class="receipt__row"><span>Tata Salt 1kg</span><span>₹26</span></div>
+              </div>
+              <div class="receipt__total">
+                <span>Total</span>
+                <span class="receipt__total__amt">₹155.00</span>
+              </div>
+              <div class="receipt__share">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="#25D366"><path d="M20.52 3.48A11.94 11.94 0 0012.04 0C5.46 0 .12 5.34.12 11.92c0 2.1.55 4.15 1.6 5.96L0 24l6.31-1.66a11.94 11.94 0 005.73 1.46h.01c6.58 0 11.92-5.34 11.92-11.92 0-3.18-1.24-6.17-3.45-8.4zM12.05 21.7a9.79 9.79 0 01-4.99-1.36l-.36-.21-3.74.98 1-3.65-.23-.37a9.78 9.78 0 01-1.5-5.18c0-5.4 4.4-9.8 9.82-9.8 2.62 0 5.08 1.02 6.93 2.87a9.74 9.74 0 012.87 6.93c0 5.4-4.4 9.79-9.8 9.79z"/></svg>
+                Shared via WhatsApp
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Floating cards -->
+        <div class="float-card float-card--stock">
+          <div class="float-card__icon">📦</div>
+          <div>
+            <div class="float-card__title">Stock alert</div>
+            <div class="float-card__sub">Maggi 70g · 4 left</div>
+          </div>
+        </div>
+        <div class="float-card float-card--order">
+          <div class="float-card__icon">🛍️</div>
+          <div>
+            <div class="float-card__title">New online order</div>
+            <div class="float-card__sub">Priya · ₹420 · COD</div>
+          </div>
+          <div class="float-card__pulse"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LOGOS / TRUST STRIP -->
+    <section class="trust">
+      <p class="trust__line">Powering counters from</p>
+      <div class="trust__marquee" aria-hidden="true">
+        <div class="trust__track">
+          <span>🏪 Krishna Mart</span>
+          <span>🛒 Sunrise Stores</span>
+          <span>🥖 Anna Bakery</span>
+          <span>💊 Janta Medical</span>
+          <span>📚 City Stationery</span>
+          <span>🍔 Bombay Bites</span>
+          <span>🧴 Beauty Bazaar</span>
+          <span>🏪 Krishna Mart</span>
+          <span>🛒 Sunrise Stores</span>
+          <span>🥖 Anna Bakery</span>
+          <span>💊 Janta Medical</span>
+          <span>📚 City Stationery</span>
+          <span>🍔 Bombay Bites</span>
+          <span>🧴 Beauty Bazaar</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES BENTO -->
+    <section id="features" class="section">
+      <div class="section__head reveal">
+        <span class="eyebrow eyebrow--center">
+          <span class="dot"></span> Everything a small shop needs
+        </span>
+        <h2>Built for the counter, designed for your pocket.</h2>
+        <p>
+          From a noisy kirana to a quiet boutique — Gahki gives you scanner-fast
+          billing, batch-aware stock, and an online storefront in one tap.
+        </p>
+      </div>
+
+      <div class="bento">
+        <article class="bento__card bento__card--span2 reveal">
+          <div class="bento__icon">⚡</div>
+          <h3>Scan. Add. Bill. In 2 seconds.</h3>
+          <p>
+            The BarcodeDetector camera or your USB scanner — both wired into a
+            cart that auto-totals tax-inclusive prices. No tap dance.
+          </p>
+          <div class="bento__demo">
+            <div class="kbd">SCAN</div>
+            <div class="kbd-arrow">→</div>
+            <div class="kbd">+ ITEM</div>
+            <div class="kbd-arrow">→</div>
+            <div class="kbd">PRINT</div>
+          </div>
+        </article>
+
+        <article class="bento__card reveal">
+          <div class="bento__icon">📑</div>
+          <h3>Pro PDF invoices</h3>
+          <p>QuestPDF-rendered, branded with your shop. Share via WhatsApp in one tap.</p>
+        </article>
+
+        <article class="bento__card reveal">
+          <div class="bento__icon">🧮</div>
+          <h3>Tax-inclusive pricing</h3>
+          <p>MRP and Selling Price are gross. No double-tax surprises at checkout.</p>
+        </article>
+
+        <article class="bento__card reveal">
+          <div class="bento__icon">📦</div>
+          <h3>Batch &amp; expiry tracking</h3>
+          <p>Multiple stock batches per product with expiry dates and FIFO deduction.</p>
+        </article>
+
+        <article class="bento__card bento__card--span2 reveal">
+          <div class="bento__icon">🛍️</div>
+          <h3>Free online storefront</h3>
+          <p>
+            Flip a switch, get <code>shop.gahki.in/your-shop</code>. Customers
+            browse, add to cart, place orders. Stock stays in sync with the counter.
+          </p>
+          <div class="bento__url">
+            <span class="bento__url__lock">🔒</span>
+            <span class="bento__url__host">shop.gahki.in/</span>
+            <span class="bento__url__slug" id="slugTyper">krishna-mart</span>
+            <span class="caret"></span>
+          </div>
+        </article>
+
+        <article class="bento__card reveal">
+          <div class="bento__icon">👥</div>
+          <h3>Roles &amp; multi-shop</h3>
+          <p>Admin, Manager, Cashier. One user, many shops — switch instantly.</p>
+        </article>
+
+        <article class="bento__card reveal">
+          <div class="bento__icon">🔐</div>
+          <h3>OTP login. No passwords.</h3>
+          <p>Email OTP → JWT. Same flow for staff and customers. Zero password resets.</p>
+        </article>
+
+        <article class="bento__card reveal">
+          <div class="bento__icon">🔄</div>
+          <h3>Conflict-free stock</h3>
+          <p>ETag-based optimistic concurrency. Counter and online never collide.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- DUAL APP SECTION -->
+    <section id="dual" class="section section--dual">
+      <div class="section__head reveal">
+        <span class="eyebrow eyebrow--center"><span class="dot"></span> Two apps. One inventory.</span>
+        <h2>Counter and storefront, finally on speaking terms.</h2>
+        <p>
+          Sell at the shop with <strong>Gahki POS</strong>. Sell on WhatsApp
+          with <strong>Gahki Store</strong>. Same products, same stock, same
+          truth.
+        </p>
+      </div>
+
+      <div class="dual">
+        <article class="dual__card dual__card--pos reveal">
+          <div class="dual__chip">bill.gahki.in</div>
+          <h3>Gahki POS</h3>
+          <p class="dual__sub">For the staff behind the counter.</p>
+          <ul class="checklist">
+            <li>Camera + USB barcode scanner</li>
+            <li>Cart-based instant billing</li>
+            <li>Stock batches with expiry</li>
+            <li>PDF invoices, refunds, share</li>
+            <li>Multi-shop, multi-role</li>
+          </ul>
+          <a class="btn btn--primary" href="https://bill.gahki.in" target="_blank" rel="noopener">Open POS app →</a>
+        </article>
+
+        <div class="dual__bridge" aria-hidden="true">
+          <div class="dual__bridge__line"></div>
+          <div class="dual__bridge__pulse"></div>
+          <div class="dual__bridge__label">shared stock · live</div>
+        </div>
+
+        <article class="dual__card dual__card--store reveal">
+          <div class="dual__chip dual__chip--alt">shop.gahki.in</div>
+          <h3>Gahki Store</h3>
+          <p class="dual__sub">For your customers — on WhatsApp.</p>
+          <ul class="checklist">
+            <li>Mobile-first storefront</li>
+            <li>Custom slug + theme color</li>
+            <li>Cart, checkout, COD</li>
+            <li>Order status: placed → confirmed</li>
+            <li>Reserved stock until you confirm</li>
+          </ul>
+          <a class="btn btn--ghost" href="https://shop.gahki.in" target="_blank" rel="noopener">See a live storefront →</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE BILL DEMO -->
+    <section id="demo" class="section">
+      <div class="section__head reveal">
+        <span class="eyebrow eyebrow--center"><span class="dot"></span> Try it yourself</span>
+        <h2>Scan an item. Watch the bill build.</h2>
+        <p>No sign-up. Click any product to add it to a live tax-inclusive bill.</p>
+      </div>
+
+      <div class="demo reveal">
+        <div class="demo__products">
+          <button class="demo__product" data-name="Maggi 70g" data-price="14">
+            <span class="demo__product__emoji">🍜</span>
+            <span class="demo__product__name">Maggi 70g</span>
+            <span class="demo__product__price">₹14</span>
+          </button>
+          <button class="demo__product" data-name="Amul Butter 100g" data-price="56">
+            <span class="demo__product__emoji">🧈</span>
+            <span class="demo__product__name">Amul Butter 100g</span>
+            <span class="demo__product__price">₹56</span>
+          </button>
+          <button class="demo__product" data-name="Britannia Bread" data-price="45">
+            <span class="demo__product__emoji">🍞</span>
+            <span class="demo__product__name">Britannia Bread</span>
+            <span class="demo__product__price">₹45</span>
+          </button>
+          <button class="demo__product" data-name="Tata Salt 1kg" data-price="26">
+            <span class="demo__product__emoji">🧂</span>
+            <span class="demo__product__name">Tata Salt 1kg</span>
+            <span class="demo__product__price">₹26</span>
+          </button>
+          <button class="demo__product" data-name="Parle-G 250g" data-price="35">
+            <span class="demo__product__emoji">🍪</span>
+            <span class="demo__product__name">Parle-G 250g</span>
+            <span class="demo__product__price">₹35</span>
+          </button>
+          <button class="demo__product" data-name="Coca-Cola 750ml" data-price="40">
+            <span class="demo__product__emoji">🥤</span>
+            <span class="demo__product__name">Coca-Cola 750ml</span>
+            <span class="demo__product__price">₹40</span>
+          </button>
+        </div>
+
+        <div class="demo__bill">
+          <div class="demo__bill__head">
+            <strong>Live bill</strong>
+            <span class="demo__bill__id">#INV-LIVE</span>
+          </div>
+          <div class="demo__bill__rows" id="demoRows">
+            <div class="demo__bill__empty">Click a product to add it →</div>
+          </div>
+          <div class="demo__bill__foot">
+            <div class="demo__bill__line">
+              <span>Items</span><span id="demoCount">0</span>
+            </div>
+            <div class="demo__bill__line demo__bill__line--total">
+              <span>Total</span><span>₹<span id="demoTotal">0</span></span>
+            </div>
+            <button class="btn btn--primary btn--block" id="demoReset">Clear &amp; start over</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="section section--dim">
+      <div class="section__head reveal">
+        <span class="eyebrow eyebrow--center"><span class="dot"></span> From signup to first bill</span>
+        <h2>Three steps. One coffee.</h2>
+      </div>
+
+      <ol class="steps">
+        <li class="step reveal">
+          <div class="step__num">01</div>
+          <h3>Sign in with email OTP</h3>
+          <p>No passwords, no PINs. We email a 6-digit code valid for 5 minutes.</p>
+        </li>
+        <li class="step reveal">
+          <div class="step__num">02</div>
+          <h3>Add your shop &amp; products</h3>
+          <p>Scan a barcode or type details. MRP, SP, tax — Gahki computes the rest.</p>
+        </li>
+        <li class="step reveal">
+          <div class="step__num">03</div>
+          <h3>Bill, share, repeat</h3>
+          <p>Generate PDF invoices on the spot. WhatsApp them to your customer.</p>
+        </li>
+      </ol>
+    </section>
+
+    <!-- COMPARISON -->
+    <section class="section">
+      <div class="section__head reveal">
+        <span class="eyebrow eyebrow--center"><span class="dot"></span> Why switch</span>
+        <h2>The pen-and-notebook era is over.</h2>
+      </div>
+
+      <div class="compare">
+        <div class="compare__col compare__col--old reveal">
+          <h3>The old way</h3>
+          <ul>
+            <li>📓 Diary entries lost in a drawer</li>
+            <li>📲 Calculator + WhatsApp text bills</li>
+            <li>❓ "Bhai, is this in stock?" calls</li>
+            <li>🧾 Hand-written invoices, no GST trail</li>
+            <li>💸 Setup fees, monthly minimums</li>
+          </ul>
+        </div>
+        <div class="compare__col compare__col--new reveal">
+          <h3>The Gahki way</h3>
+          <ul>
+            <li>⚡ Barcode-fast counter billing</li>
+            <li>📑 Branded PDF invoices, one tap</li>
+            <li>🛍️ A storefront on every WhatsApp share</li>
+            <li>📦 Stock that updates itself</li>
+            <li>🆓 Free forever for one shop</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICING -->
+    <section id="pricing" class="section">
+      <div class="section__head reveal">
+        <span class="eyebrow eyebrow--center"><span class="dot"></span> Pricing</span>
+        <h2>Honest. Predictable. Mostly free.</h2>
+      </div>
+
+      <div class="pricing">
+        <article class="price reveal">
+          <h3>Starter</h3>
+          <div class="price__amt">₹0<span>/mo</span></div>
+          <p class="price__sub">Forever free for one shop.</p>
+          <ul>
+            <li>1 shop, 2 staff</li>
+            <li>Unlimited bills &amp; products</li>
+            <li>PDF invoices &amp; WhatsApp share</li>
+            <li>Email OTP login</li>
+          </ul>
+          <a class="btn btn--ghost btn--block" href="#waitlist">Start free</a>
+        </article>
+
+        <article class="price price--featured reveal">
+          <div class="price__badge">Most popular</div>
+          <h3>Growth</h3>
+          <div class="price__amt">₹299<span>/mo</span></div>
+          <p class="price__sub">For shops ready to sell online.</p>
+          <ul>
+            <li>3 shops, unlimited staff</li>
+            <li>Online storefront on shop.gahki.in</li>
+            <li>Order management + COD</li>
+            <li>Stock batches &amp; expiry</li>
+            <li>Priority support</li>
+          </ul>
+          <a class="btn btn--primary btn--block" href="#waitlist">Start 14-day trial</a>
+        </article>
+
+        <article class="price reveal">
+          <h3>Chain</h3>
+          <div class="price__amt">Custom</div>
+          <p class="price__sub">Multi-shop chains &amp; franchises.</p>
+          <ul>
+            <li>Unlimited shops &amp; staff</li>
+            <li>Custom domains for storefronts</li>
+            <li>Centralised reporting</li>
+            <li>Dedicated success manager</li>
+          </ul>
+          <a class="btn btn--ghost btn--block" href="mailto:hello@gahki.in?subject=Gahki%20Chain%20plan">Talk to us</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section">
+      <div class="section__head reveal">
+        <span class="eyebrow eyebrow--center"><span class="dot"></span> FAQ</span>
+        <h2>Quick answers.</h2>
+      </div>
+
+      <div class="faq">
+        <details class="faq__item reveal" open>
+          <summary>Do I need any hardware?</summary>
+          <p>
+            No. A phone with a camera works. If you have a USB barcode scanner,
+            even better — it acts as a keyboard and Gahki picks it up natively.
+          </p>
+        </details>
+        <details class="faq__item reveal">
+          <summary>Will it work offline?</summary>
+          <p>
+            Gahki is an online platform — your stock stays in sync across the
+            counter and online store. A short outage during billing is queued
+            client-side and retried automatically.
+          </p>
+        </details>
+        <details class="faq__item reveal">
+          <summary>Is my data safe?</summary>
+          <p>
+            Yes. Data lives in Azure Cosmos DB with per-shop isolation, ETag
+            concurrency, and JWT-based access. Login is OTP-only — no passwords
+            to leak.
+          </p>
+        </details>
+        <details class="faq__item reveal">
+          <summary>What about GST &amp; tax?</summary>
+          <p>
+            MRP and Selling Price are tax-inclusive. The tax % on each product
+            is shown on the invoice for the customer's reference — no double
+            tax is added at checkout.
+          </p>
+        </details>
+        <details class="faq__item reveal">
+          <summary>Can my customers re-order?</summary>
+          <p>
+            Yes. Flip on the storefront from your shop settings, share the
+            <code>shop.gahki.in/your-shop</code> link, and customers can browse
+            and place COD orders. You confirm them from the POS app.
+          </p>
+        </details>
+      </div>
+    </section>
+
+    <!-- WAITLIST CTA -->
+    <section id="waitlist" class="section section--cta">
+      <div class="cta reveal">
+        <div class="cta__bg" aria-hidden="true"></div>
+        <h2>Run your shop from your phone.</h2>
+        <p>Join the early-access list. We'll set up your shop in under 5 minutes.</p>
+        <form class="cta__form" id="waitlistForm" novalidate>
+          <input
+            type="email"
+            name="email"
+            required
+            placeholder="you@yourshop.in"
+            aria-label="Email"
+          />
+          <button class="btn btn--primary btn--lg" type="submit">
+            Get early access
+          </button>
+        </form>
+        <p class="cta__note" id="waitlistNote">No spam. One email when your shop is ready.</p>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="foot">
+      <div class="foot__inner">
+        <div class="foot__brand">
+          <a class="brand" href="#top">
+            <span class="brand__mark" aria-hidden="true">
+              <svg viewBox="0 0 32 32" width="24" height="24">
+                <rect x="3" y="6" width="26" height="20" rx="5" fill="#7cf5c8"/>
+                <rect x="7" y="11" width="2" height="10" fill="#0a0e27"/>
+                <rect x="11" y="11" width="1" height="10" fill="#0a0e27"/>
+                <rect x="14" y="11" width="3" height="10" fill="#0a0e27"/>
+                <rect x="19" y="11" width="1" height="10" fill="#0a0e27"/>
+                <rect x="22" y="11" width="2" height="10" fill="#0a0e27"/>
+              </svg>
+            </span>
+            <span class="brand__text">Gahki</span>
+          </a>
+          <p>The pocket POS for India's small shops.</p>
+        </div>
+        <div class="foot__cols">
+          <div>
+            <h4>Product</h4>
+            <a href="https://bill.gahki.in" target="_blank" rel="noopener">POS app</a>
+            <a href="https://shop.gahki.in" target="_blank" rel="noopener">Storefront</a>
+            <a href="#features">Features</a>
+            <a href="#pricing">Pricing</a>
+          </div>
+          <div>
+            <h4>Company</h4>
+            <a href="mailto:hello@gahki.in">Contact</a>
+            <a href="#waitlist">Early access</a>
+          </div>
+          <div>
+            <h4>Resources</h4>
+            <a href="#demo">Live demo</a>
+            <a href="#faq">FAQ</a>
+          </div>
+        </div>
+      </div>
+      <div class="foot__bar">
+        <span>© <span id="year">2026</span> Gahki. Made in India.</span>
+        <span class="foot__status">
+          <span class="foot__status__dot"></span> All systems operational
+        </span>
+      </div>
+    </footer>
+
+    <script src="assets/app.js" defer></script>
+  </body>
+</html>
