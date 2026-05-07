@@ -1,0 +1,71 @@
+name: Daily Usage Refresh
+
+# Refresh per-shop usage counters (products + bills-this-month) on every active
+# shop's profile snapshot. The endpoint is async — it returns 202 immediately
+# and the actual COUNT queries + profile patches run on a background worker
+# inside the API process.
+#
+# Required repo secret:
+#   GAHKI_API_KEY      — shared secret matching the API's `ApiKey` config value
+#                        (set on Azure App Service as ApiKey).
+#                        Long-lived; rotate by updating both sides.
+#
+# Required repo variable:
+#   GAHKI_API_BASE_URL — base URL of the API
+#
+# Manual run: Actions tab → "Daily Usage Refresh" → "Run workflow".
+
+on:
+  schedule:
+    # 20:30 UTC = 02:00 IST. GitHub cron may be delayed up to ~15 min on the
+    # free tier; that's acceptable for a daily-refresh job.
+    - cron: '30 20 * * *'
+  workflow_dispatch:
+    inputs:
+      shop_id:
+        description: 'Optional — refresh a single shop only (leave blank for all active shops).'
+        required: false
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Submit refresh job
+        env:
+          API_BASE_URL: ${{ vars.GAHKI_API_BASE_URL }}
+          API_KEY: ${{ secrets.GAHKI_API_KEY }}
+          SHOP_ID: ${{ github.event.inputs.shop_id }}
+        run: |
+          set -euo pipefail
+          if [ -z "${API_KEY:-}" ]; then
+            echo "::error::GAHKI_API_KEY secret is not set."
+            exit 1
+          fi
+          if [ -z "${API_BASE_URL:-}" ]; then
+            echo "::error::GAHKI_API_BASE_URL variable is not set."
+            exit 1
+          fi
+
+          URL="${API_BASE_URL}/api/jobs/usage-refresh"
+          if [ -n "${SHOP_ID:-}" ]; then
+            URL="${URL}?shopId=${SHOP_ID}"
+          fi
+
+          echo "Submitting usage refresh: ${URL}"
+          # 202 Accepted is the success path — the worker continues asynchronously.
+          # 409 means a full refresh is already queued/running, which is harmless.
+          response=$(curl -sS -o /tmp/refresh.json -w "%{http_code}" \
+                          -X POST "${URL}" \
+                          -H "X-Api-Key: ${API_KEY}")
+          echo "HTTP ${response}"
+          cat /tmp/refresh.json || true
+          echo
+
+          if [ "${response}" = "202" ] || [ "${response}" = "409" ]; then
+            exit 0
+          fi
+          exit 1
