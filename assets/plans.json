@@ -1,0 +1,61 @@
+{
+  "currency": "INR",
+  "plans": [
+    {
+      "code": "starter",
+      "displayName": "Starter",
+      "priceInr": 0,
+      "priceLabel": "FREE",
+      "tagline": "For shops just getting started.",
+      "highlights": [
+        "1 user",
+        "20 products",
+        "50 bills / day",
+        "PDF invoices & WhatsApp share",
+        "Email OTP login",
+        "Stock batches & expiry tracking"
+      ]
+    },
+    {
+      "code": "growth",
+      "displayName": "Growth",
+      "priceInr": 199,
+      "priceLabel": "\u20b9199",
+      "tagline": "For busy shops with multiple staff.",
+      "isRecommended": true,
+      "highlights": [
+        "3 users",
+        "400 products",
+        "Unlimited bills",
+        "PDF invoices & WhatsApp share",
+        "Email OTP login",
+        "Stock batches & expiry tracking"
+      ]
+    },
+    {
+      "code": "custom",
+      "displayName": "Custom",
+      "priceInr": null,
+      "priceLabel": "Let's talk",
+      "tagline": "For larger shops, chains, or special needs.",
+      "highlights": [
+        "Tailored user limit",
+        "Tailored product limit",
+        "Unlimited bills",
+        "PDF invoices & WhatsApp share",
+        "Email OTP login",
+        "Stock batches & expiry tracking",
+        "Multi-shop support",
+        "Priority support"
+      ]
+    }
+  ],
+  "addons": [
+    {
+      "key": "online_store",
+      "label": "Online Store + Premium Support",
+      "startsAtInr": 1000,
+      "description": "Dedicated storefront on shop.gahki.in with cart, COD orders, and priority support. Pricing scales with the features you need."
+    }
+  ]
+}

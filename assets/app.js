@@ -232,4 +232,27 @@
     heroVisual.addEventListener('mousemove', onMove);
     heroVisual.addEventListener('mouseleave', onLeave);
   }
+
+  /* ---------- Dual-bridge live stock ticker ----------
+     Tiny animation that nudges the "in stock" number on the bridge core,
+     reinforcing the "live sync" message visually without being distracting.
+     Decrements on the sale-packet animation cycle, increments on the order
+     cycle so it stays roughly stable around the start value.
+     -------------------------------------------------- */
+  const stockEl = document.getElementById('bridgeStockNum');
+  if (stockEl) {
+    let n = parseInt(stockEl.textContent || '128', 10) || 128;
+    setInterval(() => {
+      // The two packets fire 2s apart; a 4s tick alternates -2 / +1 nicely.
+      n = n - 2;
+      stockEl.textContent = n;
+      setTimeout(() => {
+        n = n + 1;
+        stockEl.textContent = n;
+      }, 2000);
+      // Keep the number in a believable range so it doesn't drift to absurd values.
+      if (n < 80) n = 128;
+      if (n > 200) n = 128;
+    }, 4000);
+  }
 })();

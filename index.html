@@ -12,7 +12,7 @@
     <meta property="og:title" content="Gahki — Pocket POS + Online Store" />
     <meta
       property="og:description"
-      content="Scan. Bill. Share. Sell online. Run your shop from your phone."
+      content="Scan or search. Bill. Share. Sell online. Run your shop from your phone."
     />
     <meta property="og:type" content="website" />
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
@@ -75,13 +75,14 @@
           <span class="title-grad">pays for itself.</span>
         </h1>
         <p class="hero__sub">
-          Scan the barcode. Print the bill. Share it on WhatsApp. Then let
+          Scan the barcode or search by name. Print the bill. Share it on WhatsApp.
+          Then let
           customers re-order from your storefront — without lifting a finger.
         </p>
 
         <div class="hero__ctas">
-          <a class="btn btn--primary btn--lg" href="#waitlist">
-            Start free
+          <a class="btn btn--primary btn--lg" href="#pricing">
+            See plans
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
               <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
@@ -107,9 +108,9 @@
           </div>
           <div class="stat">
             <div class="stat__num">
-              ₹<span data-count="0" data-target="0">0</span>
+              ₹<span data-count="499" data-target="499">0</span><span class="stat__suffix">/mo</span>
             </div>
-            <div class="stat__lbl">forever free tier</div>
+            <div class="stat__lbl">starts at</div>
           </div>
         </div>
       </div>
@@ -254,13 +255,13 @@
       <div class="bento">
         <article class="bento__card bento__card--span2 reveal">
           <div class="bento__icon">⚡</div>
-          <h3>Scan. Add. Bill. In 2 seconds.</h3>
+          <h3>Scan or search. Add. Bill. In 2 seconds.</h3>
           <p>
-            The BarcodeDetector camera or your USB scanner — both wired into a
-            cart that auto-totals tax-inclusive prices. No tap dance.
+            Use your phone's camera, a USB scanner, or just type the product name.
+            Items drop straight into the bill, totals update themselves. No tap dance.
           </p>
           <div class="bento__demo">
-            <div class="kbd">SCAN</div>
+            <div class="kbd">SCAN / SEARCH</div>
             <div class="kbd-arrow">→</div>
             <div class="kbd">+ ITEM</div>
             <div class="kbd-arrow">→</div>
@@ -271,24 +272,25 @@
         <article class="bento__card reveal">
           <div class="bento__icon">📑</div>
           <h3>Pro PDF invoices</h3>
-          <p>QuestPDF-rendered, branded with your shop. Share via WhatsApp in one tap.</p>
+          <p>Clean, branded invoices. Share via WhatsApp in one tap.</p>
         </article>
 
         <article class="bento__card reveal">
           <div class="bento__icon">🧮</div>
-          <h3>Tax-inclusive pricing</h3>
-          <p>MRP and Selling Price are gross. No double-tax surprises at checkout.</p>
+          <h3>No tax surprises</h3>
+          <p>The price you set is the price the customer pays. Tax is shown on the invoice — never added at checkout.</p>
+          <p>The price you set is the price your customer pays. Tax is shown on the invoice — never added at checkout.</p>
         </article>
 
         <article class="bento__card reveal">
           <div class="bento__icon">📦</div>
           <h3>Batch &amp; expiry tracking</h3>
-          <p>Multiple stock batches per product with expiry dates and FIFO deduction.</p>
+          <p>Track multiple stock lots per product with expiry dates. Older stock sells first, automatically.</p>
         </article>
 
         <article class="bento__card bento__card--span2 reveal">
           <div class="bento__icon">🛍️</div>
-          <h3>Free online storefront</h3>
+          <h3>Online storefront</h3>
           <p>
             Flip a switch, get <code>shop.gahki.in/your-shop</code>. Customers
             browse, add to cart, place orders. Stock stays in sync with the counter.
@@ -310,13 +312,13 @@
         <article class="bento__card reveal">
           <div class="bento__icon">🔐</div>
           <h3>OTP login. No passwords.</h3>
-          <p>Email OTP → JWT. Same flow for staff and customers. Zero password resets.</p>
+          <p>Sign in with a 6-digit code emailed to you. Same flow for staff and customers. Zero password resets.</p>
         </article>
 
         <article class="bento__card reveal">
           <div class="bento__icon">🔄</div>
           <h3>Conflict-free stock</h3>
-          <p>ETag-based optimistic concurrency. Counter and online never collide.</p>
+          <p>Counter sales and online orders share the same stock — no double-selling, no manual reconciling.</p>
         </article>
       </div>
     </section>
@@ -349,9 +351,42 @@
         </article>
 
         <div class="dual__bridge" aria-hidden="true">
-          <div class="dual__bridge__line"></div>
-          <div class="dual__bridge__pulse"></div>
-          <div class="dual__bridge__label">shared stock · live</div>
+          <!-- Top rail: sale flowing FROM the counter TOWARD the storefront -->
+          <div class="dual__bridge__rail dual__bridge__rail--top">
+            <div class="dual__bridge__rail__line"></div>
+            <div class="dual__bridge__packet dual__bridge__packet--sale">
+              <span class="dual__bridge__packet__icon">🧾</span>
+              <span class="dual__bridge__packet__label">SALE −2</span>
+            </div>
+          </div>
+
+          <!-- Center node: the single inventory both apps speak to -->
+          <div class="dual__bridge__core">
+            <div class="dual__bridge__core__ring"></div>
+            <div class="dual__bridge__core__ring dual__bridge__core__ring--2"></div>
+            <div class="dual__bridge__core__ring dual__bridge__core__ring--3"></div>
+            <div class="dual__bridge__core__hub">
+              <div class="dual__bridge__core__icon">📦</div>
+              <div class="dual__bridge__core__count">
+                <span class="dual__bridge__core__num" id="bridgeStockNum">128</span>
+                <span class="dual__bridge__core__lbl">in stock</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom rail: online order flowing FROM the storefront TOWARD the counter -->
+          <div class="dual__bridge__rail dual__bridge__rail--bottom">
+            <div class="dual__bridge__rail__line"></div>
+            <div class="dual__bridge__packet dual__bridge__packet--order">
+              <span class="dual__bridge__packet__icon">🛒</span>
+              <span class="dual__bridge__packet__label">ORDER +1</span>
+            </div>
+          </div>
+
+          <div class="dual__bridge__label">
+            <span class="dual__bridge__label__dot"></span>
+            One inventory · live sync
+          </div>
         </div>
 
         <article class="dual__card dual__card--store reveal">
@@ -374,8 +409,8 @@
     <section id="demo" class="section">
       <div class="section__head reveal">
         <span class="eyebrow eyebrow--center"><span class="dot"></span> Try it yourself</span>
-        <h2>Scan an item. Watch the bill build.</h2>
-        <p>No sign-up. Click any product to add it to a live tax-inclusive bill.</p>
+        <h2>Scan or search an item. Watch the bill build.</h2>
+        <p>No sign-up. Click any product to add it to a live bill.</p>
       </div>
 
       <div class="demo reveal">
@@ -449,7 +484,7 @@
         <li class="step reveal">
           <div class="step__num">02</div>
           <h3>Add your shop &amp; products</h3>
-          <p>Scan a barcode or type details. MRP, SP, tax — Gahki computes the rest.</p>
+          <p>Scan a barcode, search by name, or type the details. Set the price and tax — Gahki handles the rest.</p>
         </li>
         <li class="step reveal">
           <div class="step__num">03</div>
@@ -484,7 +519,7 @@
             <li>📑 Branded PDF invoices, one tap</li>
             <li>🛍️ A storefront on every WhatsApp share</li>
             <li>📦 Stock that updates itself</li>
-            <li>🆓 Free forever for one shop</li>
+            <li>💳 Predictable monthly pricing</li>
           </ul>
         </div>
       </div>
@@ -494,19 +529,22 @@
     <section id="pricing" class="section">
       <div class="section__head reveal">
         <span class="eyebrow eyebrow--center"><span class="dot"></span> Pricing</span>
-        <h2>Honest. Predictable. Mostly free.</h2>
+        <h2>Three plans. Simple choices.</h2>
+        <p>Start free. Upgrade when you grow. Add the online store whenever you're ready.</p>
       </div>
 
       <div class="pricing">
         <article class="price reveal">
           <h3>Starter</h3>
-          <div class="price__amt">₹0<span>/mo</span></div>
-          <p class="price__sub">Forever free for one shop.</p>
+          <div class="price__amt">FREE<span></span></div>
+          <p class="price__sub">For shops just getting started.</p>
           <ul>
-            <li>1 shop, 2 staff</li>
-            <li>Unlimited bills &amp; products</li>
+            <li>1 user</li>
+            <li>20 products</li>
+            <li>50 bills / day</li>
             <li>PDF invoices &amp; WhatsApp share</li>
             <li>Email OTP login</li>
+            <li>Stock batches &amp; expiry tracking</li>
           </ul>
           <a class="btn btn--ghost btn--block" href="#waitlist">Start free</a>
         </article>
@@ -514,31 +552,66 @@
         <article class="price price--featured reveal">
           <div class="price__badge">Most popular</div>
           <h3>Growth</h3>
-          <div class="price__amt">₹299<span>/mo</span></div>
-          <p class="price__sub">For shops ready to sell online.</p>
+          <div class="price__amt">₹199<span>/mo</span></div>
+          <p class="price__sub">For busy shops with multiple staff.</p>
           <ul>
-            <li>3 shops, unlimited staff</li>
-            <li>Online storefront on shop.gahki.in</li>
-            <li>Order management + COD</li>
-            <li>Stock batches &amp; expiry</li>
-            <li>Priority support</li>
+            <li>3 users</li>
+            <li>400 products</li>
+            <li>Unlimited bills</li>
+            <li>PDF invoices &amp; WhatsApp share</li>
+            <li>Email OTP login</li>
+            <li>Stock batches &amp; expiry tracking</li>
           </ul>
-          <a class="btn btn--primary btn--block" href="#waitlist">Start 14-day trial</a>
+          <a class="btn btn--primary btn--block" href="#waitlist">Get started</a>
         </article>
 
         <article class="price reveal">
-          <h3>Chain</h3>
-          <div class="price__amt">Custom</div>
-          <p class="price__sub">Multi-shop chains &amp; franchises.</p>
+          <h3>Custom</h3>
+          <div class="price__amt">Let's talk<span></span></div>
+          <p class="price__sub">For larger shops, chains, or special needs.</p>
           <ul>
-            <li>Unlimited shops &amp; staff</li>
-            <li>Custom domains for storefronts</li>
-            <li>Centralised reporting</li>
-            <li>Dedicated success manager</li>
+            <li>Tailored user limit</li>
+            <li>Tailored product limit</li>
+            <li>Unlimited bills</li>
+            <li>PDF invoices &amp; WhatsApp share</li>
+            <li>Email OTP login</li>
+            <li>Stock batches &amp; expiry tracking</li>
+            <li>Multi-shop support</li>
+            <li>Priority support</li>
           </ul>
-          <a class="btn btn--ghost btn--block" href="mailto:hello@gahki.in?subject=Gahki%20Chain%20plan">Talk to us</a>
+          <a class="btn btn--ghost btn--block" href="mailto:hello@gahki.in?subject=Gahki%20Custom%20plan">Contact us</a>
         </article>
       </div>
+
+      <!-- Add-on callout -->
+      <article class="addon-card reveal">
+        <div class="addon-card__icon" aria-hidden="true">🛍️</div>
+        <div class="addon-card__body">
+          <span class="addon-card__eyebrow">Add-on</span>
+          <h3>Online Store + Premium Support</h3>
+          <p>
+            Add a dedicated storefront on <code>shop.gahki.in</code> — customers
+            browse, add to cart, place COD orders. Comes with priority support
+            from our team. <strong>Pricing scales with the features you need.</strong>
+          </p>
+          <p class="addon-card__cta">
+            Want your store on <strong>your own link</strong>?
+            <a href="mailto:hello@gahki.in?subject=Custom%20domain%20for%20online%20store">Let's talk</a>
+            — we can have it ready in minutes.
+          </p>
+        </div>
+        <div class="addon-card__price">
+          <small>Starts at</small>
+          <strong>+₹1,000<span>/mo</span></strong>
+          <small><a href="mailto:hello@gahki.in?subject=Online%20Store%20add-on">Talk to us</a></small>
+        </div>
+      </article>
+
+      <p class="builder__footnote reveal">
+        Need more, or running multiple shops?
+        <a href="mailto:hello@gahki.in?subject=Gahki%20Enterprise%20plan">Talk to us</a>
+        about an enterprise plan.
+      </p>
     </section>
 
     <!-- FAQ -->
@@ -567,17 +640,27 @@
         <details class="faq__item reveal">
           <summary>Is my data safe?</summary>
           <p>
-            Yes. Data lives in Azure Cosmos DB with per-shop isolation, ETag
-            concurrency, and JWT-based access. Login is OTP-only — no passwords
-            to leak.
+            Yes. Each shop's data is isolated, sign-in is by email code only
+            (no passwords to leak), and we run on enterprise cloud infrastructure
+            with daily backups.
           </p>
         </details>
         <details class="faq__item reveal">
           <summary>What about GST &amp; tax?</summary>
           <p>
-            MRP and Selling Price are tax-inclusive. The tax % on each product
-            is shown on the invoice for the customer's reference — no double
-            tax is added at checkout.
+            The price you set on each product is the final price your customer pays.
+            The tax portion is shown on the invoice for their records — we never add
+            tax on top at checkout, so there are no last-minute surprises.
+          </p>
+        </details>
+        <details class="faq__item reveal">
+          <summary>How much does it cost?</summary>
+          <p>
+            Two plans: <strong>POS</strong> at ₹499/mo (counter billing, 200 products,
+            1,000 bills/month, 3 staff) and <strong>POS + Store</strong> at ₹1,499/mo
+            (online storefront, 2,000 products, 10,000 bills/month, 10 staff).
+            Limits reset on the 1st of every month (IST). Need different limits or
+            multi-shop? Ask us about a custom plan.
           </p>
         </details>
         <details class="faq__item reveal">
