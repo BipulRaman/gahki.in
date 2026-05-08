@@ -265,30 +265,6 @@
     }, 4500);
   }
 
-  /* ---------- Waitlist form (client-side) ---------- */
-  const form = document.getElementById('waitlistForm');
-  const note = document.getElementById('waitlistNote');
-  if (form && note) {
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const data = new FormData(form);
-      const email = String(data.get('email') || '').trim();
-      const valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-      if (!valid) {
-        note.textContent = 'Please enter a valid email.';
-        note.style.color = '#ff6b8b';
-        return;
-      }
-      note.textContent = "You're on the list. We'll be in touch within a day.";
-      note.style.color = '#7cf5c8';
-      form.reset();
-      // Persist locally so the user sees confirmation on revisit
-      try {
-        localStorage.setItem('gahki:waitlist', email);
-      } catch (_) { /* ignore */ }
-    });
-  }
-
   /* ---------- Footer year ---------- */
   const yr = document.getElementById('year');
   if (yr) yr.textContent = String(new Date().getFullYear());

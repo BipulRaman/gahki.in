@@ -3481,3 +3481,264 @@ ul {
   .demo2__product__body { flex: 1; padding: 8px 10px; }
   .demo2__product__name { min-height: 0; }
 }
+
+
+/* =========================================================
+   STORY — three-act day-in-the-life with POS + Store
+   ========================================================= */
+.story {
+  position: relative;
+  z-index: 1;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 80px 24px 60px;
+}
+.story__intro {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 48px;
+}
+.story__intro h2 {
+  font-size: clamp(28px, 4vw, 42px);
+  background: linear-gradient(180deg, #ffffff, #b3bce0);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 12px;
+}
+.story__intro p {
+  font-size: 17px;
+  color: var(--text-dim);
+}
+
+.story__acts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  position: relative;
+}
+/* Connecting thread between cards (decorative line on desktop) */
+.story__acts::before {
+  content: '';
+  position: absolute;
+  top: 64px;
+  left: 16%;
+  right: 16%;
+  height: 2px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(124, 245, 200, 0.35) 20%,
+    rgba(78, 160, 255, 0.45) 50%,
+    rgba(139, 92, 246, 0.35) 80%,
+    transparent 100%);
+  z-index: 0;
+  border-radius: 2px;
+}
+
+.act {
+  position: relative;
+  z-index: 1;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: transform 0.3s cubic-bezier(.2,.8,.2,1), border-color 0.2s ease;
+}
+.act:hover {
+  transform: translateY(-3px);
+  border-color: var(--border-strong);
+}
+
+.act__time {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: max-content;
+  padding: 6px 12px;
+  background: rgba(124, 245, 200, 0.10);
+  border: 1px solid rgba(124, 245, 200, 0.25);
+  color: var(--primary-2);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  border-radius: 999px;
+}
+.act__time::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--primary-2);
+  box-shadow: 0 0 8px var(--primary-2);
+}
+
+.act__title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  line-height: 1.2;
+  margin: 0;
+}
+.act__title em {
+  font-style: normal;
+  background: var(--grad-cool);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.act__body {
+  font-size: 14.5px;
+  color: var(--text-dim);
+  margin: 0;
+  line-height: 1.55;
+}
+
+/* Mini UI snippet inside each act (light-themed, like the real screens) */
+.act__snippet {
+  margin-top: auto;
+  background: var(--app-paper);
+  border-radius: 12px;
+  padding: 12px 14px;
+  box-shadow: var(--app-shadow-2);
+  color: var(--app-text);
+  font-family: 'Inter', sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid var(--app-divider);
+}
+.act__snippet--counter {
+  border-left: 3px solid var(--app-primary);
+}
+.act__snippet--store {
+  border-left: 3px solid #2d5016;
+}
+.act__snippet--insight {
+  border-left: 3px solid var(--app-success);
+}
+.act__snippet__icon {
+  width: 36px; height: 36px;
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.act__snippet__title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--app-text);
+  line-height: 1.25;
+}
+.act__snippet__sub {
+  font-size: 11.5px;
+  color: var(--app-text-2);
+  line-height: 1.35;
+  margin-top: 1px;
+}
+
+/* Tag showing which app does what (POS / Store / Both) */
+.act__tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  background: rgba(78, 160, 255, 0.12);
+  color: var(--primary);
+  border: 1px solid rgba(78, 160, 255, 0.3);
+  width: max-content;
+}
+.act__tag--store {
+  background: rgba(124, 245, 200, 0.12);
+  color: var(--primary-2);
+  border-color: rgba(124, 245, 200, 0.3);
+}
+.act__tag--both {
+  background: linear-gradient(135deg, rgba(78,160,255,0.15), rgba(124,245,200,0.15));
+  color: var(--text);
+  border-color: rgba(255,255,255,0.18);
+}
+
+/* Story closing line */
+.story__close {
+  text-align: center;
+  margin-top: 44px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(16px, 2vw, 18px);
+  color: var(--text);
+  font-weight: 500;
+}
+.story__close strong {
+  background: var(--grad-cool);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+}
+
+/* =========================================================
+   Story responsive
+   ========================================================= */
+@media (max-width: 980px) {
+  .story { padding: 60px 22px 40px; }
+  .story__intro { margin-bottom: 32px; }
+  .story__acts { grid-template-columns: 1fr; gap: 16px; }
+  .story__acts::before { display: none; }
+  .act { padding: 22px; }
+  .act__title { font-size: 19px; }
+}
+@media (max-width: 600px) {
+  .story { padding: 40px 18px 30px; }
+  .story__close { margin-top: 28px; font-size: 15px; }
+}
+
+
+/* =========================================================
+   Mobile top bar — bigger brand, CTA pinned right
+   ========================================================= */
+@media (max-width: 900px) {
+  .nav {
+    padding: 8px 8px 8px 14px;
+    gap: 8px;
+  }
+  /* Brand on the left */
+  .brand { font-size: 19px; gap: 10px; flex-shrink: 0; }
+  .brand__mark svg { width: 28px; height: 28px; }
+
+  /* The middle nav links are hidden, so this spacer pushes CTA all the way right */
+  .nav__links { display: none; }
+  .nav::after {
+    content: '';
+    flex: 1;
+  }
+
+  /* CTA group sits flush against the right edge of the pill */
+  .nav__cta {
+    margin-left: 0;
+    flex-shrink: 0;
+    gap: 0;
+  }
+  .nav__cta .btn--ghost { display: none; }
+  .nav__cta .btn--primary {
+    padding: 10px 18px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 600px) {
+  .brand { font-size: 18px; }
+  .brand__mark svg { width: 26px; height: 26px; }
+  .nav__cta .btn--primary { padding: 9px 16px; font-size: 13.5px; }
+}
