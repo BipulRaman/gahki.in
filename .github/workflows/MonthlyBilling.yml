@@ -1,0 +1,40 @@
+name: Monthly Subscription Billing
+
+# Triggers the API's async billing-run worker (POST /api/jobs/billing-run) for
+# the current IST month, billing every active tenant shop with a non-null
+# monthly price. Idempotent: re-running for the same period does not duplicate
+# invoices.
+#
+# Ad-hoc / single-shop runs are issued from the SuperAdmin dashboard, so this
+# workflow only runs the full monthly billing sweep.
+#
+# Needs secret GAHKI_API_KEY and variable GAHKI_API_BASE_URL.
+
+on:
+  schedule:
+    # 00:00 UTC on the 1st of each month = 05:30 IST.
+    # GitHub cron is UTC and "last day of previous month" isn't natively supported;
+    # a few-hour delay vs midnight IST is acceptable for upfront subscription billing.
+    - cron: '0 0 1 * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  bill:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Submit billing-run job
+        env:
+          BASE: ${{ secrets.GAHKI_API_BASE_URL }}
+          KEY:  ${{ secrets.GAHKI_API_KEY }}
+        run: |
+          set -euo pipefail
+          url="${BASE}/api/jobs/billing-run"
+          echo "POST $url"
+          code=$(curl -sS -o /dev/stderr -w "%{http_code}" \
+                      -X POST "$url" -H "X-Api-Key: $KEY")
+          echo "HTTP $code"
+          # 202 = accepted, 409 = already running for that period -> both fine
+          [[ "$code" == "202" || "$code" == "409" ]]
