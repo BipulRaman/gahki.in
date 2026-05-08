@@ -53,8 +53,7 @@
 
       <nav class="nav__links" aria-label="Primary">
         <a href="#features">Features</a>
-        <a href="#dual">Two apps, one shop</a>
-        <a href="#demo">Live demo</a>
+        <a href="#screens">Screens</a>
         <a href="#pricing">Pricing</a>
       </nav>
 
@@ -75,9 +74,9 @@
           <span class="title-grad">pays for itself.</span>
         </h1>
         <p class="hero__sub">
-          Scan the barcode or search by name. Print the bill. Share it on WhatsApp.
-          Then let
-          customers re-order from your storefront — without lifting a finger.
+          Scan the barcode or search by name. Generate a tax-ready PDF invoice in
+          seconds — share it anywhere. Then let customers re-order from your
+          online storefront, without lifting a finger.
         </p>
 
         <div class="hero__ctas">
@@ -115,103 +114,183 @@
         </div>
       </div>
 
-      <!-- Hero visual: phone with live receipt -->
+      <!-- Hero visual: realistic POS app on a laptop with companion store on phone -->
       <div class="hero__visual" aria-hidden="true">
-        <div class="phone">
-          <div class="phone__notch"></div>
-          <div class="phone__screen">
-            <div class="phone__bar">
-              <span>Krishna Mart</span>
-              <span class="phone__bar__chip">POS</span>
-            </div>
+        <div class="hero-stage">
+          <!-- Laptop with the actual POS New Bill screen -->
+          <div class="hero-stage__laptop">
+            <div class="browser">
+              <div class="browser__bar">
+                <div class="browser__lights"><span></span><span></span><span></span></div>
+                <div class="browser__url">bill.gahki.in/bills/new</div>
+              </div>
+              <div class="app-bar">
+                <div class="app-bar__brand">
+                  <span class="app-bar__brand__mark">
+                    <svg viewBox="0 0 32 32"><rect x="3" y="6" width="26" height="20" rx="5" fill="#1565c0"/><rect x="7" y="11" width="2" height="10" fill="#fff"/><rect x="11" y="11" width="1" height="10" fill="#fff"/><rect x="14" y="11" width="3" height="10" fill="#fff"/><rect x="19" y="11" width="1" height="10" fill="#fff"/><rect x="22" y="11" width="2" height="10" fill="#fff"/></svg>
+                  </span>
+                  <span class="app-bar__title">New bill <small>Krishna Mart · Cashier</small></span>
+                </div>
+                <span class="app-bar__spacer"></span>
+                <span class="m-chip m-chip--success"><span class="m-chip__dot"></span> Live</span>
+              </div>
 
-            <!-- Animated barcode scanner -->
-            <div class="scanner">
-              <svg class="scanner__barcode" viewBox="0 0 220 80" aria-hidden="true">
-                <g fill="#e8edff">
-                  <rect x="6"   y="10" width="3" height="50"/>
-                  <rect x="12"  y="10" width="1" height="50"/>
-                  <rect x="16"  y="10" width="4" height="50"/>
-                  <rect x="23"  y="10" width="2" height="50"/>
-                  <rect x="28"  y="10" width="1" height="50"/>
-                  <rect x="32"  y="10" width="5" height="50"/>
-                  <rect x="40"  y="10" width="2" height="50"/>
-                  <rect x="45"  y="10" width="1" height="50"/>
-                  <rect x="49"  y="10" width="3" height="50"/>
-                  <rect x="55"  y="10" width="2" height="50"/>
-                  <rect x="60"  y="10" width="4" height="50"/>
-                  <rect x="68"  y="10" width="1" height="50"/>
-                  <rect x="72"  y="10" width="3" height="50"/>
-                  <rect x="78"  y="10" width="2" height="50"/>
-                  <rect x="83"  y="10" width="5" height="50"/>
-                  <rect x="91"  y="10" width="1" height="50"/>
-                  <rect x="95"  y="10" width="3" height="50"/>
-                  <rect x="101" y="10" width="2" height="50"/>
-                  <rect x="106" y="10" width="4" height="50"/>
-                  <rect x="113" y="10" width="2" height="50"/>
-                  <rect x="118" y="10" width="1" height="50"/>
-                  <rect x="122" y="10" width="3" height="50"/>
-                  <rect x="128" y="10" width="2" height="50"/>
-                  <rect x="133" y="10" width="5" height="50"/>
-                  <rect x="141" y="10" width="1" height="50"/>
-                  <rect x="145" y="10" width="3" height="50"/>
-                  <rect x="151" y="10" width="2" height="50"/>
-                  <rect x="156" y="10" width="4" height="50"/>
-                  <rect x="163" y="10" width="2" height="50"/>
-                  <rect x="168" y="10" width="1" height="50"/>
-                  <rect x="172" y="10" width="3" height="50"/>
-                  <rect x="178" y="10" width="2" height="50"/>
-                  <rect x="183" y="10" width="5" height="50"/>
-                  <rect x="191" y="10" width="1" height="50"/>
-                  <rect x="195" y="10" width="3" height="50"/>
-                  <rect x="201" y="10" width="2" height="50"/>
-                  <rect x="206" y="10" width="4" height="50"/>
-                  <rect x="213" y="10" width="2" height="50"/>
-                </g>
-              </svg>
-              <div class="scanner__line"></div>
-              <div class="scanner__caption">scanning…</div>
-            </div>
+              <div class="screen-newbill">
+                <div class="screen-newbill__col">
+                  <div class="nb-search">
+                    <span class="nb-search__icon">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3" stroke-linecap="round"/></svg>
+                    </span>
+                    <span class="nb-search__input">Amul Butter</span>
+                    <span class="nb-textfield__caret"></span>
+                    <span class="nb-search__scan" title="Scan">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7V4h3M21 7V4h-3M3 17v3h3M21 17v3h-3M7 9v6M11 9v6M15 9v6"/></svg>
+                    </span>
+                  </div>
 
-            <!-- Receipt -->
-            <div class="receipt">
-              <div class="receipt__head">
-                <strong>Krishna Mart</strong>
-                <small>Tax invoice · #INV-00214</small>
+                  <div class="nb-customer">
+                    <div class="nb-customer__head">
+                      <strong>Rajesh Kumar</strong>
+                      <span>+91 98765 43210</span>
+                    </div>
+                    <span class="m-chip m-chip--primary">Repeat customer · 12 bills</span>
+                  </div>
+
+                  <div class="nb-cart">
+                    <div class="nb-item">
+                      <div class="nb-item__name">Amul Butter 100g</div>
+                      <div class="nb-item__price">₹112</div>
+                      <div class="nb-item__meta">2 × ₹56  ·  Tax 5%  ·  Batch B-2024-11</div>
+                      <div class="nb-item__qty"><button>−</button><span>2</span><button>+</button></div>
+                    </div>
+                    <div class="nb-item">
+                      <div class="nb-item__name">Basmati Rice 1kg</div>
+                      <div class="nb-item__price">₹180</div>
+                      <div class="nb-item__meta">1 × ₹180  ·  MRP ₹200  ·  Save ₹20</div>
+                      <div class="nb-item__qty"><button>−</button><span>1</span><button>+</button></div>
+                    </div>
+                    <div class="nb-item">
+                      <div class="nb-item__name">Britannia Bread</div>
+                      <div class="nb-item__price">₹100</div>
+                      <div class="nb-item__meta">2 × ₹50  ·  Tax 5%</div>
+                      <div class="nb-item__qty"><button>−</button><span>2</span><button>+</button></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="nb-summary">
+                  <div class="nb-summary__title">Bill summary</div>
+                  <div class="nb-summary__row"><span>Subtotal (3 items)</span><span>₹392</span></div>
+                  <div class="nb-summary__row"><span>Bill discount</span><span style="color:var(--app-success)">− ₹12</span></div>
+                  <div class="nb-summary__row"><span>Tax (incl.)</span><span>₹18.10</span></div>
+                  <div class="nb-summary__row nb-summary__row--total"><span>Total</span><span>₹380</span></div>
+
+                  <div class="nb-summary__paymode">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M2 10h20"/></svg>
+                    Pay with <strong>UPI</strong>
+                  </div>
+
+                  <div class="nb-summary__btns">
+                    <span class="m-btn m-btn--outlined"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12M6 9l6 6 6-6M5 21h14"/></svg>PDF</span>
+                    <span class="m-btn m-btn--primary"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.2l-3.5-3.5-1.4 1.4L9 19l11-11-1.4-1.4z"/></svg>Create</span>
+                  </div>
+                </div>
               </div>
-              <div class="receipt__rows" id="receiptRows">
-                <div class="receipt__row"><span>Maggi 70g × 2</span><span>₹28</span></div>
-                <div class="receipt__row"><span>Amul Butter 100g</span><span>₹56</span></div>
-                <div class="receipt__row"><span>Britannia Bread</span><span>₹45</span></div>
-                <div class="receipt__row"><span>Tata Salt 1kg</span><span>₹26</span></div>
-              </div>
-              <div class="receipt__total">
-                <span>Total</span>
-                <span class="receipt__total__amt">₹155.00</span>
-              </div>
-              <div class="receipt__share">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="#25D366"><path d="M20.52 3.48A11.94 11.94 0 0012.04 0C5.46 0 .12 5.34.12 11.92c0 2.1.55 4.15 1.6 5.96L0 24l6.31-1.66a11.94 11.94 0 005.73 1.46h.01c6.58 0 11.92-5.34 11.92-11.92 0-3.18-1.24-6.17-3.45-8.4zM12.05 21.7a9.79 9.79 0 01-4.99-1.36l-.36-.21-3.74.98 1-3.65-.23-.37a9.78 9.78 0 01-1.5-5.18c0-5.4 4.4-9.8 9.82-9.8 2.62 0 5.08 1.02 6.93 2.87a9.74 9.74 0 012.87 6.93c0 5.4-4.4 9.79-9.8 9.79z"/></svg>
-                Shared via WhatsApp
+            </div>
+            <!-- Laptop base -->
+            <div style="width:120%;margin-left:-10%;height:14px;background:linear-gradient(180deg,#2a2c33,#15171c);border-radius:0 0 14px 14px;position:relative;box-shadow:0 12px 30px rgba(0,0,0,0.45);"></div>
+          </div>
+
+          <!-- Companion phone showing the storefront -->
+          <div class="hero-stage__phone">
+            <div class="iphone">
+              <div class="iphone__screen">
+                <div class="iphone__statusbar">
+                  <span>9:41</span>
+                  <div class="iphone__statusbar__icons">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M2 22h2v-8H2zm5 0h2V10H7zm5 0h2V4h-2zm5 0h2V14h-2z"/></svg>
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M5 12c4.97-4.97 13.03-4.97 18 0l-2 2c-3.86-3.86-10.14-3.86-14 0z"/></svg>
+                  </div>
+                </div>
+                <div class="app-bar app-bar--primary">
+                  <div class="app-bar__brand">
+                    <span class="app-bar__brand__mark"><svg viewBox="0 0 24 24" fill="#1565c0"><path d="M4 9V7l1-3h14l1 3v2h-1v9a2 2 0 01-2 2H7a2 2 0 01-2-2V9zm2 0h12V7H6z"/></svg></span>
+                    Krishna Mart
+                  </div>
+                  <span class="app-bar__spacer"></span>
+                  <span class="app-bar__cart"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M7 18a2 2 0 100 4 2 2 0 000-4zm10 0a2 2 0 100 4 2 2 0 000-4zM1 2v2h2l3.6 7.59-1.35 2.45A2 2 0 007 17h12v-2H7l1.1-2h7.45a2 2 0 001.79-1.11l3.58-6.49L19.42 4H5.21L4.27 2z"/></svg><span class="app-bar__cart__badge">3</span></span>
+                </div>
+
+                <div style="padding:10px 14px 6px"><div class="store-search">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3" stroke-linecap="round"/></svg>
+                  Search products
+                </div></div>
+
+                <div class="store-grid">
+                  <div class="store-prod">
+                    <div class="store-prod__img" style="--prod-c1:#fff7d6;--prod-c2:#ffd76b">🧈</div>
+                    <div class="store-prod__body">
+                      <div class="store-prod__name">Amul Butter 100g</div>
+                      <div class="store-prod__price"><span class="store-prod__sp">₹56</span><span class="store-prod__mrp">₹60</span></div>
+                      <span class="store-prod__off">7% OFF</span>
+                    </div>
+                  </div>
+                  <div class="store-prod">
+                    <div class="store-prod__img" style="--prod-c1:#fde6e2;--prod-c2:#f8b4a8">🍞</div>
+                    <div class="store-prod__body">
+                      <div class="store-prod__name">Britannia Bread</div>
+                      <div class="store-prod__price"><span class="store-prod__sp">₹50</span><span class="store-prod__mrp">₹55</span></div>
+                      <span class="store-prod__off">9% OFF</span>
+                    </div>
+                  </div>
+                  <div class="store-prod">
+                    <div class="store-prod__img" style="--prod-c1:#e3f2fd;--prod-c2:#90caf9">🥛</div>
+                    <div class="store-prod__body">
+                      <div class="store-prod__name">Amul Milk 500ml</div>
+                      <div class="store-prod__price"><span class="store-prod__sp">₹38</span><span class="store-prod__mrp">₹40</span></div>
+                      <span class="store-prod__off">5% OFF</span>
+                    </div>
+                  </div>
+                  <div class="store-prod">
+                    <div class="store-prod__img" style="--prod-c1:#fff3e0;--prod-c2:#ffcc80">🍪</div>
+                    <div class="store-prod__body">
+                      <div class="store-prod__name">Parle-G Biscuits</div>
+                      <div class="store-prod__price"><span class="store-prod__sp">₹32</span><span class="store-prod__mrp">₹35</span></div>
+                      <span class="store-prod__off">9% OFF</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="store-bottombar">
+                  <div class="store-bottombar__price">₹380<small>3 items in cart</small></div>
+                  <span class="m-btn m-btn--primary"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M14 5l7 7-7 7v-4H3v-6h11z"/></svg>Checkout</span>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <!-- Floating cards -->
-        <div class="float-card float-card--stock">
-          <div class="float-card__icon">📦</div>
-          <div>
-            <div class="float-card__title">Stock alert</div>
-            <div class="float-card__sub">Maggi 70g · 4 left</div>
+          <!-- Floating overlays anchored to the stage -->
+          <div class="scan-overlay hero-stage__scan">
+            <div class="scan-overlay__icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7V4h3M21 7V4h-3M3 17v3h3M21 17v3h-3M7 9v6M11 9v6M15 9v6"/></svg>
+            </div>
+            <div>
+              <div class="scan-overlay__title">Barcode detected</div>
+              <div class="scan-overlay__sub">8901030865278 · Amul Butter 100g</div>
+            </div>
           </div>
-        </div>
-        <div class="float-card float-card--order">
-          <div class="float-card__icon">🛍️</div>
-          <div>
-            <div class="float-card__title">New online order</div>
-            <div class="float-card__sub">Priya · ₹420 · COD</div>
+
+          <div class="scan-overlay hero-stage__order">
+            <div class="scan-overlay__icon" style="background:#e8f5e9;color:#2e7d32">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M7 18a2 2 0 100 4 2 2 0 000-4zm10 0a2 2 0 100 4 2 2 0 000-4zM1 2v2h2l3.6 7.59-1.35 2.45A2 2 0 007 17h12v-2H7l1.1-2h7.45a2 2 0 001.79-1.11l3.58-6.49L19.42 4H5.21L4.27 2z"/></svg>
+            </div>
+            <div>
+              <div class="scan-overlay__title">New online order</div>
+              <div class="scan-overlay__sub">Priya · ₹420 · COD · 3 items</div>
+            </div>
           </div>
-          <div class="float-card__pulse"></div>
+
+          <div class="hero-stage__sync">⇌ One inventory · live sync</div>
         </div>
       </div>
     </section>
@@ -247,8 +326,8 @@
         </span>
         <h2>Built for the counter, designed for your pocket.</h2>
         <p>
-          From a noisy kirana to a quiet boutique — Gahki gives you scanner-fast
-          billing, batch-aware stock, and an online storefront in one tap.
+          Scanner-fast billing, batch-aware stock, an online storefront, and
+          analytics — in one app you can run from your phone.
         </p>
       </div>
 
@@ -257,43 +336,45 @@
           <div class="bento__icon">⚡</div>
           <h3>Scan or search. Add. Bill. In 2 seconds.</h3>
           <p>
-            Use your phone's camera, a USB scanner, or just type the product name.
-            Items drop straight into the bill, totals update themselves. No tap dance.
+            Camera, USB scanner, or just type the name. Items drop into the bill,
+            totals update themselves. PDF + WhatsApp share, one tap.
           </p>
           <div class="bento__demo">
-            <div class="kbd">SCAN / SEARCH</div>
+            <div class="kbd">SCAN</div>
             <div class="kbd-arrow">→</div>
             <div class="kbd">+ ITEM</div>
             <div class="kbd-arrow">→</div>
-            <div class="kbd">PRINT</div>
+            <div class="kbd">SHARE</div>
           </div>
-        </article>
-
-        <article class="bento__card reveal">
-          <div class="bento__icon">📑</div>
-          <h3>Pro PDF invoices</h3>
-          <p>Clean, branded invoices. Share via WhatsApp in one tap.</p>
-        </article>
-
-        <article class="bento__card reveal">
-          <div class="bento__icon">🧮</div>
-          <h3>No tax surprises</h3>
-          <p>The price you set is the price the customer pays. Tax is shown on the invoice — never added at checkout.</p>
-          <p>The price you set is the price your customer pays. Tax is shown on the invoice — never added at checkout.</p>
         </article>
 
         <article class="bento__card reveal">
           <div class="bento__icon">📦</div>
           <h3>Batch &amp; expiry tracking</h3>
-          <p>Track multiple stock lots per product with expiry dates. Older stock sells first, automatically.</p>
+          <p>Multiple stock lots per product. Older stock sells first, automatically.</p>
+          <div class="bento__snippet bento__snippet--alert">
+            <div class="bento__snippet__icon" style="background:#fff4e5;color:#ed6c02">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L1 21h22L12 2zm-1 6h2v6h-2zm0 8h2v2h-2z"/></svg>
+            </div>
+            <div>
+              <div class="bento__snippet__title">Cough Syrup · 8 units</div>
+              <div class="bento__snippet__sub">Batch B-2024-09 · expires in 12 days</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="bento__card reveal">
+          <div class="bento__icon">📊</div>
+          <h3>Sales analytics</h3>
+          <p>Revenue, top sellers, busiest hours — with a time-machine picker.</p>
         </article>
 
         <article class="bento__card bento__card--span2 reveal">
           <div class="bento__icon">🛍️</div>
-          <h3>Online storefront</h3>
+          <h3>Online storefront, in one switch</h3>
           <p>
-            Flip a switch, get <code>shop.gahki.in/your-shop</code>. Customers
-            browse, add to cart, place orders. Stock stays in sync with the counter.
+            Customers browse, cart, and place COD orders at
+            <code>shop.gahki.in/your-shop</code>. Stock stays in sync with the counter.
           </p>
           <div class="bento__url">
             <span class="bento__url__lock">🔒</span>
@@ -304,226 +385,546 @@
         </article>
 
         <article class="bento__card reveal">
-          <div class="bento__icon">👥</div>
-          <h3>Roles &amp; multi-shop</h3>
-          <p>Admin, Manager, Cashier. One user, many shops — switch instantly.</p>
-        </article>
-
-        <article class="bento__card reveal">
           <div class="bento__icon">🔐</div>
           <h3>OTP login. No passwords.</h3>
-          <p>Sign in with a 6-digit code emailed to you. Same flow for staff and customers. Zero password resets.</p>
+          <p>6-digit email code. Same flow for staff and customers. Zero resets.</p>
         </article>
 
         <article class="bento__card reveal">
-          <div class="bento__icon">🔄</div>
-          <h3>Conflict-free stock</h3>
-          <p>Counter sales and online orders share the same stock — no double-selling, no manual reconciling.</p>
+          <div class="bento__icon">↩️</div>
+          <h3>Refunds &amp; multi-shop</h3>
+          <p>Partial or full returns with auto stock-back. One user, many shops.</p>
         </article>
       </div>
     </section>
 
-    <!-- DUAL APP SECTION -->
-    <section id="dual" class="section section--dual">
+    <!-- SCREENS GALLERY (NEW — realistic UI replicas) -->
+    <section id="screens" class="section">
       <div class="section__head reveal">
-        <span class="eyebrow eyebrow--center"><span class="dot"></span> Two apps. One inventory.</span>
-        <h2>Counter and storefront, finally on speaking terms.</h2>
+        <span class="eyebrow eyebrow--center"><span class="dot"></span> See it on your screen</span>
+        <h2>Pixel-perfect. Pocket-fast. Pick a screen.</h2>
         <p>
-          Sell at the shop with <strong>Gahki POS</strong>. Sell on WhatsApp
-          with <strong>Gahki Store</strong>. Same products, same stock, same
-          truth.
+          These aren't promo renders — they're the actual screens your staff
+          and customers see. Click any title to preview it.
         </p>
       </div>
 
-      <div class="dual">
-        <article class="dual__card dual__card--pos reveal">
-          <div class="dual__chip">bill.gahki.in</div>
-          <h3>Gahki POS</h3>
-          <p class="dual__sub">For the staff behind the counter.</p>
-          <ul class="checklist">
-            <li>Camera + USB barcode scanner</li>
-            <li>Cart-based instant billing</li>
-            <li>Stock batches with expiry</li>
-            <li>PDF invoices, refunds, share</li>
-            <li>Multi-shop, multi-role</li>
-          </ul>
-          <a class="btn btn--primary" href="https://bill.gahki.in" target="_blank" rel="noopener">Open POS app →</a>
-        </article>
-
-        <div class="dual__bridge" aria-hidden="true">
-          <!-- Top rail: sale flowing FROM the counter TOWARD the storefront -->
-          <div class="dual__bridge__rail dual__bridge__rail--top">
-            <div class="dual__bridge__rail__line"></div>
-            <div class="dual__bridge__packet dual__bridge__packet--sale">
-              <span class="dual__bridge__packet__icon">🧾</span>
-              <span class="dual__bridge__packet__label">SALE −2</span>
+      <div class="screens reveal" data-screens>
+        <!-- Left: clickable list -->
+        <div class="screens__list" role="tablist">
+          <button class="screens__item is-active" data-screen="bills" role="tab">
+            <span class="screens__item__num">01</span>
+            <div>
+              <p class="screens__item__title">Bills, sorted by what matters</p>
+              <p class="screens__item__sub">Filter by date, range, or unpaid. Search by name or phone. PDF & WhatsApp from every row.</p>
             </div>
-          </div>
+          </button>
+          <button class="screens__item" data-screen="stats" role="tab">
+            <span class="screens__item__num">02</span>
+            <div>
+              <p class="screens__item__title">Sales stats with a time machine</p>
+              <p class="screens__item__sub">Pick a day, a week, a month — then arrow back to compare. KPIs and bars update on the spot.</p>
+            </div>
+          </button>
+          <button class="screens__item" data-screen="expiry" role="tab">
+            <span class="screens__item__num">03</span>
+            <div>
+              <p class="screens__item__title">Expiry, color-coded by urgency</p>
+              <p class="screens__item__sub">Red for expired, amber for this week, blue for next 30 days. Markdown the right batch first.</p>
+            </div>
+          </button>
+          <button class="screens__item" data-screen="orders" role="tab">
+            <span class="screens__item__num">04</span>
+            <div>
+              <p class="screens__item__title">Online orders with one-tap status</p>
+              <p class="screens__item__sub">Confirm, ready, ship, deliver. Stock reserves itself, customer gets an SMS at every step.</p>
+            </div>
+          </button>
+          <button class="screens__item" data-screen="store" role="tab">
+            <span class="screens__item__num">05</span>
+            <div>
+              <p class="screens__item__title">Storefront customers actually finish</p>
+              <p class="screens__item__sub">Mobile-first grid, brand color, real prices, cash-on-delivery. Share the link on WhatsApp.</p>
+            </div>
+          </button>
+          <button class="screens__item" data-screen="tracking" role="tab">
+            <span class="screens__item__num">06</span>
+            <div>
+              <p class="screens__item__title">Order tracking your buyer can read</p>
+              <p class="screens__item__sub">A clean timeline from placed → delivered. With the courier link if you ship.</p>
+            </div>
+          </button>
+        </div>
 
-          <!-- Center node: the single inventory both apps speak to -->
-          <div class="dual__bridge__core">
-            <div class="dual__bridge__core__ring"></div>
-            <div class="dual__bridge__core__ring dual__bridge__core__ring--2"></div>
-            <div class="dual__bridge__core__ring dual__bridge__core__ring--3"></div>
-            <div class="dual__bridge__core__hub">
-              <div class="dual__bridge__core__icon">📦</div>
-              <div class="dual__bridge__core__count">
-                <span class="dual__bridge__core__num" id="bridgeStockNum">128</span>
-                <span class="dual__bridge__core__lbl">in stock</span>
+        <!-- Right: the active screen renders here -->
+        <div class="screens__stage">
+
+          <!-- 01 BILLS LIST -->
+          <div class="screens__panel is-active" data-screen-panel="bills">
+            <div class="browser">
+              <div class="browser__bar">
+                <div class="browser__lights"><span></span><span></span><span></span></div>
+                <div class="browser__url">bill.gahki.in/bills</div>
+              </div>
+              <div class="app-bar">
+                <div class="app-bar__brand">
+                  <span class="app-bar__brand__mark"><svg viewBox="0 0 24 24" fill="#1565c0"><path d="M3 7h18v2H3zm0 4h18v2H3zm0 4h12v2H3z"/></svg></span>
+                  <span class="app-bar__title">Bills <small>137 this month</small></span>
+                </div>
+                <span class="app-bar__spacer"></span>
+                <span class="m-btn m-btn--primary"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6z"/></svg>New bill</span>
+              </div>
+              <div class="screen-body">
+                <div class="screen-bills__filters">
+                  <span class="m-chip m-chip--primary">Today</span>
+                  <span class="m-chip m-chip--outlined">Yesterday</span>
+                  <span class="m-chip m-chip--outlined">Last 7 days</span>
+                  <span class="m-chip m-chip--outlined">This month</span>
+                  <span class="m-chip m-chip--error">Unpaid · 3</span>
+                  <span style="flex:1"></span>
+                  <div class="m-textfield" style="max-width:160px;padding:5px 10px">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3" stroke-linecap="round"/></svg>
+                    <span class="m-textfield__placeholder">Search</span>
+                  </div>
+                </div>
+                <div class="bill-row">
+                  <div class="bill-row__id">#INV-20260508-1234</div>
+                  <span class="m-chip m-chip--success bill-row__chip">Paid · UPI</span>
+                  <div class="bill-row__name">Rajesh Kumar · 5 items</div>
+                  <div class="bill-row__amt">₹1,380</div>
+                  <div class="bill-row__when">Today, 2:30 PM</div>
+                </div>
+                <div class="bill-row">
+                  <div class="bill-row__id">#INV-20260508-1233</div>
+                  <span class="m-chip m-chip--error bill-row__chip">Unpaid</span>
+                  <div class="bill-row__name">Priya Singh · 2 items</div>
+                  <div class="bill-row__amt">₹279</div>
+                  <div class="bill-row__when">Today, 1:45 PM</div>
+                </div>
+                <div class="bill-row">
+                  <div class="bill-row__id">#INV-20260508-1232</div>
+                  <span class="m-chip m-chip--success bill-row__chip">Paid · Cash</span>
+                  <div class="bill-row__name">Walk-in customer · 1 item</div>
+                  <div class="bill-row__amt">₹56</div>
+                  <div class="bill-row__when">Today, 12:18 PM</div>
+                </div>
+                <div class="bill-row">
+                  <div class="bill-row__id">#INV-20260508-1231</div>
+                  <span class="m-chip m-chip--info bill-row__chip">Refunded · Partial</span>
+                  <div class="bill-row__name">Amit Patel · 4 items</div>
+                  <div class="bill-row__amt">₹620</div>
+                  <div class="bill-row__when">Today, 11:02 AM</div>
+                </div>
               </div>
             </div>
           </div>
 
-          <!-- Bottom rail: online order flowing FROM the storefront TOWARD the counter -->
-          <div class="dual__bridge__rail dual__bridge__rail--bottom">
-            <div class="dual__bridge__rail__line"></div>
-            <div class="dual__bridge__packet dual__bridge__packet--order">
-              <span class="dual__bridge__packet__icon">🛒</span>
-              <span class="dual__bridge__packet__label">ORDER +1</span>
+          <!-- 02 SALES STATS -->
+          <div class="screens__panel" data-screen-panel="stats">
+            <div class="browser">
+              <div class="browser__bar">
+                <div class="browser__lights"><span></span><span></span><span></span></div>
+                <div class="browser__url">bill.gahki.in/stats</div>
+              </div>
+              <div class="app-bar">
+                <div class="app-bar__brand">
+                  <span class="app-bar__brand__mark"><svg viewBox="0 0 24 24" fill="#1565c0"><path d="M5 9.2h3v9.6H5zm5.6-4.4h2.8v14H10.6zm5.6 8h2.8v6h-2.8z"/></svg></span>
+                  <span class="app-bar__title">Sales analytics <small>Krishna Mart</small></span>
+                </div>
+                <span class="app-bar__spacer"></span>
+                <span class="m-chip m-chip--primary">Cash 60% · UPI 30% · Card 10%</span>
+              </div>
+              <div class="screen-body">
+                <div class="screen-stats__period">
+                  <span class="screen-stats__period__arrow">‹</span>
+                  <strong>1 May – 7 May 2026 · Last 7 days</strong>
+                  <span class="screen-stats__period__arrow">›</span>
+                </div>
+                <div class="screen-stats__kpis">
+                  <div class="kpi">
+                    <span class="kpi__icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M11 4h2v3h2.5a2.5 2.5 0 010 5H11V14h6v2h-3v3h-2v-3H7v-2h2v-2H7V8h2V7h2V4z"/></svg></span>
+                    <div class="kpi__label">Revenue</div>
+                    <div class="kpi__num">₹45,320</div>
+                    <div class="kpi__delta">+12% vs last week</div>
+                  </div>
+                  <div class="kpi kpi--success">
+                    <span class="kpi__icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4h10l1 2h3v2h-1l-1.4 11.2A2 2 0 0116.6 21H7.4a2 2 0 01-2-2.8L4 8H3V6h3l1-2z"/></svg></span>
+                    <div class="kpi__label">Items sold</div>
+                    <div class="kpi__num">312</div>
+                    <div class="kpi__delta">+24 today</div>
+                  </div>
+                  <div class="kpi kpi--info">
+                    <span class="kpi__icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M3 12a9 9 0 1118 0 9 9 0 01-18 0zm10-1V7h-2v6h5v-2z"/></svg></span>
+                    <div class="kpi__label">Avg order value</div>
+                    <div class="kpi__num">₹145</div>
+                    <div class="kpi__delta kpi__delta--down">−₹3 vs last week</div>
+                  </div>
+                  <div class="kpi kpi--warning">
+                    <span class="kpi__icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.4H22l-6.2 4.5L18.2 22 12 17.5 5.8 22l2.4-8.1L2 9.4h7.6z"/></svg></span>
+                    <div class="kpi__label">Top product</div>
+                    <div class="kpi__num"><small>Basmati Rice 1kg</small></div>
+                    <div class="kpi__delta">42 units · ₹7,560</div>
+                  </div>
+                </div>
+                <div class="chart">
+                  <div class="chart__head">
+                    <span class="chart__title">Daily revenue</span>
+                    <span class="m-chip m-chip--primary">7-day window</span>
+                  </div>
+                  <div class="chart__bars">
+                    <div class="chart__bar" style="height:42%"></div>
+                    <div class="chart__bar" style="height:58%"></div>
+                    <div class="chart__bar" style="height:36%"></div>
+                    <div class="chart__bar" style="height:71%"></div>
+                    <div class="chart__bar" style="height:54%"></div>
+                    <div class="chart__bar chart__bar--accent" style="height:88%"></div>
+                    <div class="chart__bar chart__bar--accent" style="height:96%"></div>
+                  </div>
+                  <div class="chart__labels"><span>MON</span><span>TUE</span><span>WED</span><span>THU</span><span>FRI</span><span>SAT</span><span>SUN</span></div>
+                </div>
+              </div>
             </div>
           </div>
 
-          <div class="dual__bridge__label">
-            <span class="dual__bridge__label__dot"></span>
-            One inventory · live sync
+          <!-- 03 EXPIRY -->
+          <div class="screens__panel" data-screen-panel="expiry">
+            <div class="browser">
+              <div class="browser__bar">
+                <div class="browser__lights"><span></span><span></span><span></span></div>
+                <div class="browser__url">bill.gahki.in/expiry</div>
+              </div>
+              <div class="app-bar">
+                <div class="app-bar__brand">
+                  <span class="app-bar__brand__mark"><svg viewBox="0 0 24 24" fill="#1565c0"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm1 11h5v-2h-4V6h-2v7z"/></svg></span>
+                  <span class="app-bar__title">Expiry tracker <small>3 expired · 12 expiring soon</small></span>
+                </div>
+                <span class="app-bar__spacer"></span>
+                <span class="m-chip m-chip--outlined">Within 30 days ▾</span>
+              </div>
+              <div class="screen-body">
+                <div class="screen-stats__kpis">
+                  <div class="kpi kpi--warning" style="background:#fdecea">
+                    <span class="kpi__icon" style="background:#f8d6d2;color:#d32f2f"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L1 21h22L12 2zm-1 14v2h2v-2h-2zm0-6v4h2v-4h-2z"/></svg></span>
+                    <div class="kpi__label">Expired</div>
+                    <div class="kpi__num" style="color:#d32f2f">3</div>
+                  </div>
+                  <div class="kpi kpi--warning">
+                    <span class="kpi__icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M6 2h12v6l-4 4 4 4v6H6v-6l4-4-4-4V2z"/></svg></span>
+                    <div class="kpi__label">Within 7 days</div>
+                    <div class="kpi__num">12</div>
+                  </div>
+                  <div class="kpi kpi--info">
+                    <span class="kpi__icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 6v6l5 3-1 1.5-6-3.5V6z"/></svg></span>
+                    <div class="kpi__label">Within 30 days</div>
+                    <div class="kpi__num">28</div>
+                  </div>
+                </div>
+                <div class="expiry-row">
+                  <div>
+                    <div class="expiry-row__name">Cough Syrup 100ml</div>
+                    <div class="expiry-row__meta">Batch B-2024-09 · expired 5 Mar 2026 · Medicine</div>
+                  </div>
+                  <div class="expiry-row__qty">8<small>units</small></div>
+                </div>
+                <div class="expiry-row expiry-row--soon">
+                  <div>
+                    <div class="expiry-row__name">Amul Buttermilk 1L</div>
+                    <div class="expiry-row__meta">Batch B-2026-04 · expires 15 May 2026 · Dairy</div>
+                  </div>
+                  <div class="expiry-row__qty">24<small>units</small></div>
+                </div>
+                <div class="expiry-row expiry-row--soon">
+                  <div>
+                    <div class="expiry-row__name">Britannia Bread 400g</div>
+                    <div class="expiry-row__meta">Batch B-2026-05a · expires 13 May 2026 · Bakery</div>
+                  </div>
+                  <div class="expiry-row__qty">12<small>units</small></div>
+                </div>
+                <div class="expiry-row expiry-row--later">
+                  <div>
+                    <div class="expiry-row__name">Basmati Rice 1kg</div>
+                    <div class="expiry-row__meta">Batch B-2025-11 · expires 30 Jun 2026 · Grains</div>
+                  </div>
+                  <div class="expiry-row__qty">50<small>kg</small></div>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
 
-        <article class="dual__card dual__card--store reveal">
-          <div class="dual__chip dual__chip--alt">shop.gahki.in</div>
-          <h3>Gahki Store</h3>
-          <p class="dual__sub">For your customers — on WhatsApp.</p>
-          <ul class="checklist">
-            <li>Mobile-first storefront</li>
-            <li>Custom slug + theme color</li>
-            <li>Cart, checkout, COD</li>
-            <li>Order status: placed → confirmed</li>
-            <li>Reserved stock until you confirm</li>
-          </ul>
-          <a class="btn btn--ghost" href="https://shop.gahki.in" target="_blank" rel="noopener">See a live storefront →</a>
-        </article>
+          <!-- 04 ONLINE ORDERS -->
+          <div class="screens__panel" data-screen-panel="orders">
+            <div class="browser">
+              <div class="browser__bar">
+                <div class="browser__lights"><span></span><span></span><span></span></div>
+                <div class="browser__url">bill.gahki.in/online-orders</div>
+              </div>
+              <div class="app-bar">
+                <div class="app-bar__brand">
+                  <span class="app-bar__brand__mark"><svg viewBox="0 0 24 24" fill="#1565c0"><path d="M7 18a2 2 0 100 4 2 2 0 000-4zm10 0a2 2 0 100 4 2 2 0 000-4zM1 2v2h2l3.6 7.59-1.35 2.45A2 2 0 007 17h12v-2H7l1.1-2h7.45a2 2 0 001.79-1.11l3.58-6.49L19.42 4H5.21L4.27 2z"/></svg></span>
+                  <span class="app-bar__title">Online orders <small>2 new · 5 in progress</small></span>
+                </div>
+                <span class="app-bar__spacer"></span>
+                <span class="m-chip m-chip--success"><span class="m-chip__dot"></span>Live</span>
+              </div>
+              <div class="screen-body">
+                <div class="order-card">
+                  <div class="order-card__id">#ORD-20260508-5432</div>
+                  <span class="m-chip m-chip--warning">Placed · 2 min ago</span>
+                  <div class="order-card__cust">Priya Singh · Indiranagar, Bangalore · COD</div>
+                  <div class="order-card__amt">₹420</div>
+                  <div class="order-card__items">2× Amul Milk · 1× Bread · 1× Maggi 70g + ₹40 delivery</div>
+                  <div class="order-card__btns">
+                    <span class="m-btn m-btn--primary">Confirm</span>
+                    <span class="m-btn m-btn--outlined">Reject</span>
+                    <span class="m-btn m-btn--text">Details</span>
+                  </div>
+                </div>
+                <div class="order-card">
+                  <div class="order-card__id">#ORD-20260508-5431</div>
+                  <span class="m-chip m-chip--info">Confirmed · ready to pack</span>
+                  <div class="order-card__cust">Vikram Chandra · Pickup at counter</div>
+                  <div class="order-card__amt">₹186</div>
+                  <div class="order-card__items">3× Parle-G · 1× Tata Salt · 2× Maggi 70g</div>
+                  <div class="order-card__btns">
+                    <span class="m-btn m-btn--success">Mark ready</span>
+                    <span class="m-btn m-btn--text">Edit</span>
+                  </div>
+                </div>
+                <div class="order-card">
+                  <div class="order-card__id">#ORD-20260508-5430</div>
+                  <span class="m-chip m-chip--primary">Shipped · AWB DLV-7745</span>
+                  <div class="order-card__cust">Sneha Sharma · Koramangala</div>
+                  <div class="order-card__amt">₹890</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 05 STOREFRONT (mobile) -->
+          <div class="screens__panel--phone" data-screen-panel="store">
+            <div class="iphone">
+              <div class="iphone__screen">
+                <div class="iphone__statusbar">
+                  <span>9:41</span>
+                  <div class="iphone__statusbar__icons">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M2 22h2v-8H2zm5 0h2V10H7zm5 0h2V4h-2zm5 0h2V14h-2z"/></svg>
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M5 12c4.97-4.97 13.03-4.97 18 0l-2 2c-3.86-3.86-10.14-3.86-14 0z"/></svg>
+                  </div>
+                </div>
+                <div class="app-bar app-bar--primary" style="background:#2d5016">
+                  <div class="app-bar__brand">
+                    <span class="app-bar__brand__mark"><svg viewBox="0 0 24 24" fill="#2d5016"><path d="M4 9V7l1-3h14l1 3v2h-1v9a2 2 0 01-2 2H7a2 2 0 01-2-2V9zm2 0h12V7H6z"/></svg></span>
+                    Krishna Mart
+                  </div>
+                  <span class="app-bar__spacer"></span>
+                  <span class="app-bar__cart"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M7 18a2 2 0 100 4 2 2 0 000-4zm10 0a2 2 0 100 4 2 2 0 000-4zM1 2v2h2l3.6 7.59-1.35 2.45A2 2 0 007 17h12v-2H7l1.1-2h7.45a2 2 0 001.79-1.11l3.58-6.49L19.42 4H5.21L4.27 2z"/></svg><span class="app-bar__cart__badge">3</span></span>
+                </div>
+                <div style="padding:10px 14px 6px"><div class="store-search">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3" stroke-linecap="round"/></svg>
+                  Search products
+                </div></div>
+                <div style="padding:0 14px 6px;display:flex;gap:6px;flex-wrap:wrap">
+                  <span class="m-chip m-chip--primary" style="background:#e6efd9;color:#2d5016">All</span>
+                  <span class="m-chip m-chip--outlined">Dairy</span>
+                  <span class="m-chip m-chip--outlined">Bakery</span>
+                  <span class="m-chip m-chip--outlined">Grains</span>
+                </div>
+                <div class="store-grid">
+                  <div class="store-prod">
+                    <div class="store-prod__img" style="--prod-c1:#fff7d6;--prod-c2:#ffd76b">🧈</div>
+                    <div class="store-prod__body">
+                      <div class="store-prod__name">Amul Butter 100g</div>
+                      <div class="store-prod__price"><span class="store-prod__sp" style="color:#2d5016">₹56</span><span class="store-prod__mrp">₹60</span></div>
+                      <span class="store-prod__off">7% OFF</span>
+                    </div>
+                  </div>
+                  <div class="store-prod">
+                    <div class="store-prod__img" style="--prod-c1:#fde6e2;--prod-c2:#f8b4a8">🍞</div>
+                    <div class="store-prod__body">
+                      <div class="store-prod__name">Britannia Bread</div>
+                      <div class="store-prod__price"><span class="store-prod__sp" style="color:#2d5016">₹50</span><span class="store-prod__mrp">₹55</span></div>
+                      <span class="store-prod__off">9% OFF</span>
+                    </div>
+                  </div>
+                  <div class="store-prod">
+                    <div class="store-prod__img" style="--prod-c1:#e3f2fd;--prod-c2:#90caf9">🥛</div>
+                    <div class="store-prod__body">
+                      <div class="store-prod__name">Amul Milk 500ml</div>
+                      <div class="store-prod__price"><span class="store-prod__sp" style="color:#2d5016">₹38</span><span class="store-prod__mrp">₹40</span></div>
+                      <span class="store-prod__off">5% OFF</span>
+                    </div>
+                  </div>
+                  <div class="store-prod">
+                    <div class="store-prod__img" style="--prod-c1:#fff3e0;--prod-c2:#ffcc80">🍪</div>
+                    <div class="store-prod__body">
+                      <div class="store-prod__name">Parle-G Biscuits</div>
+                      <div class="store-prod__price"><span class="store-prod__sp" style="color:#2d5016">₹32</span><span class="store-prod__mrp">₹35</span></div>
+                      <span class="store-prod__off">9% OFF</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="store-bottombar">
+                  <div class="store-bottombar__price" style="color:#2d5016">₹380<small>3 items in cart</small></div>
+                  <span class="m-btn" style="background:#2d5016;color:#fff;box-shadow:0 4px 12px rgba(45,80,22,0.35)"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M14 5l7 7-7 7v-4H3v-6h11z"/></svg>Checkout</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 06 ORDER TRACKING (mobile) -->
+          <div class="screens__panel--phone" data-screen-panel="tracking">
+            <div class="iphone">
+              <div class="iphone__screen">
+                <div class="iphone__statusbar">
+                  <span>9:41</span>
+                  <div class="iphone__statusbar__icons">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M2 22h2v-8H2zm5 0h2V10H7zm5 0h2V4h-2zm5 0h2V14h-2z"/></svg>
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M5 12c4.97-4.97 13.03-4.97 18 0l-2 2c-3.86-3.86-10.14-3.86-14 0z"/></svg>
+                  </div>
+                </div>
+                <div class="app-bar app-bar--primary" style="background:#2d5016">
+                  <div class="app-bar__brand">
+                    <span class="app-bar__brand__mark"><svg viewBox="0 0 24 24" fill="#2d5016"><path d="M4 9V7l1-3h14l1 3v2h-1v9a2 2 0 01-2 2H7a2 2 0 01-2-2V9z"/></svg></span>
+                    Krishna Mart
+                  </div>
+                </div>
+                <div style="padding:14px 14px 4px">
+                  <div style="display:flex;align-items:center;gap:8px;color:var(--app-text);font-size:13px;font-weight:700;font-family:'JetBrains Mono',monospace">#ORD-20260508-5432</div>
+                  <div style="font-size:11px;color:var(--app-text-3);margin-top:2px">Placed today, 12:00 PM</div>
+                  <div style="margin-top:8px"><span class="m-chip m-chip--info">Out for delivery</span></div>
+                </div>
+                <div style="margin:0 14px;padding:12px 14px;background:var(--app-paper);border:1px solid var(--app-divider);border-radius:10px">
+                  <div style="font-size:11px;color:var(--app-text-2);font-weight:700;text-transform:uppercase;letter-spacing:0.04em;margin-bottom:10px">Order timeline</div>
+                  <ul class="timeline">
+                    <li class="timeline__item timeline__item--done" style="padding-left:28px">
+                      <span class="timeline__dot"></span>
+                      <div class="timeline__label">Placed</div>
+                      <div class="timeline__when">Today, 12:00 PM</div>
+                    </li>
+                    <li class="timeline__item timeline__item--done" style="padding-left:28px">
+                      <span class="timeline__dot"></span>
+                      <div class="timeline__label">Confirmed</div>
+                      <div class="timeline__when">Today, 12:08 PM</div>
+                      <div class="timeline__note">Staff confirmed your order.</div>
+                    </li>
+                    <li class="timeline__item timeline__item--done" style="padding-left:28px">
+                      <span class="timeline__dot"></span>
+                      <div class="timeline__label">Ready</div>
+                      <div class="timeline__when">Today, 1:25 PM</div>
+                    </li>
+                    <li class="timeline__item timeline__item--current" style="padding-left:28px">
+                      <span class="timeline__dot"></span>
+                      <div class="timeline__label">Shipped</div>
+                      <div class="timeline__when">Today, 2:10 PM · Porter</div>
+                      <div class="timeline__note">AWB DLV-7745 · Track on courier site</div>
+                    </li>
+                    <li class="timeline__item" style="padding-left:28px">
+                      <span class="timeline__dot"></span>
+                      <div class="timeline__label">Delivered</div>
+                      <div class="timeline__when">Expected today, 3:30 PM</div>
+                    </li>
+                  </ul>
+                </div>
+                <div style="margin:10px 14px 0;padding:10px 14px;background:#f5f6fa;border:1px solid var(--app-divider);border-radius:10px;font-size:11.5px;color:var(--app-text-2);display:flex;align-items:center;gap:8px">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="#2d5016"><path d="M20.01 15.38a11.86 11.86 0 01-3.7-.59 1 1 0 00-1.02.24l-2.2 2.2a15.05 15.05 0 01-6.59-6.6l2.2-2.21a1 1 0 00.24-1.02 11.36 11.36 0 01-.6-3.7c0-.55-.45-1-1-1H3.99c-.55 0-1 .45-1 1 0 9.39 7.61 17 17.02 17 .55 0 1-.45 1-1v-3.32c0-.55-.45-1-1-1z"/></svg>
+                  Need help? <strong>+91 98765 43210</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
       </div>
     </section>
 
+    <!-- DUAL APP SECTION removed (now redundant with hero + screens) -->
     <!-- INTERACTIVE BILL DEMO -->
     <section id="demo" class="section">
       <div class="section__head reveal">
-        <span class="eyebrow eyebrow--center"><span class="dot"></span> Try it yourself</span>
-        <h2>Scan or search an item. Watch the bill build.</h2>
-        <p>No sign-up. Click any product to add it to a live bill.</p>
+        <span class="eyebrow eyebrow--center"><span class="dot"></span> Try it</span>
+        <h2>Tap a product. Watch the bill build.</h2>
       </div>
 
-      <div class="demo reveal">
-        <div class="demo__products">
-          <button class="demo__product" data-name="Maggi 70g" data-price="14">
-            <span class="demo__product__emoji">🍜</span>
-            <span class="demo__product__name">Maggi 70g</span>
-            <span class="demo__product__price">₹14</span>
-          </button>
-          <button class="demo__product" data-name="Amul Butter 100g" data-price="56">
-            <span class="demo__product__emoji">🧈</span>
-            <span class="demo__product__name">Amul Butter 100g</span>
-            <span class="demo__product__price">₹56</span>
-          </button>
-          <button class="demo__product" data-name="Britannia Bread" data-price="45">
-            <span class="demo__product__emoji">🍞</span>
-            <span class="demo__product__name">Britannia Bread</span>
-            <span class="demo__product__price">₹45</span>
-          </button>
-          <button class="demo__product" data-name="Tata Salt 1kg" data-price="26">
-            <span class="demo__product__emoji">🧂</span>
-            <span class="demo__product__name">Tata Salt 1kg</span>
-            <span class="demo__product__price">₹26</span>
-          </button>
-          <button class="demo__product" data-name="Parle-G 250g" data-price="35">
-            <span class="demo__product__emoji">🍪</span>
-            <span class="demo__product__name">Parle-G 250g</span>
-            <span class="demo__product__price">₹35</span>
-          </button>
-          <button class="demo__product" data-name="Coca-Cola 750ml" data-price="40">
-            <span class="demo__product__emoji">🥤</span>
-            <span class="demo__product__name">Coca-Cola 750ml</span>
-            <span class="demo__product__price">₹40</span>
-          </button>
+      <div class="demo2 reveal">
+        <!-- Catalog (Products page mini-replica) -->
+        <div class="demo2__catalog">
+          <div class="demo2__catalog__head">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#1565c0"><path d="M12 2L2 7l10 5 10-5-10-5zm0 7L2 14l10 5 10-5-10-5z"/></svg>
+            <strong>Products · Krishna Mart</strong>
+            <small>6 items</small>
+          </div>
+          <div class="demo2__products">
+            <button class="demo2__product" data-name="Maggi 70g" data-price="14" data-mrp="15" data-emoji="🍜" data-c1="#fff3e0" data-c2="#ffcc80" data-tax="5">
+              <div class="demo2__product__img" style="background:linear-gradient(135deg,#fff3e0,#ffcc80)">🍜<span class="demo2__product__off">7% OFF</span></div>
+              <div class="demo2__product__body">
+                <div class="demo2__product__name">Maggi 2-Min Noodles 70g</div>
+                <div class="demo2__product__price"><span class="demo2__product__sp">₹14</span><span class="demo2__product__mrp">₹15</span></div>
+              </div>
+            </button>
+            <button class="demo2__product" data-name="Amul Butter 100g" data-price="56" data-mrp="60" data-emoji="🧈" data-c1="#fff7d6" data-c2="#ffd76b" data-tax="5">
+              <div class="demo2__product__img" style="background:linear-gradient(135deg,#fff7d6,#ffd76b)">🧈<span class="demo2__product__off">7% OFF</span></div>
+              <div class="demo2__product__body">
+                <div class="demo2__product__name">Amul Butter 100g</div>
+                <div class="demo2__product__price"><span class="demo2__product__sp">₹56</span><span class="demo2__product__mrp">₹60</span></div>
+              </div>
+            </button>
+            <button class="demo2__product" data-name="Britannia Bread" data-price="45" data-mrp="50" data-emoji="🍞" data-c1="#fde6e2" data-c2="#f8b4a8" data-tax="5">
+              <div class="demo2__product__img" style="background:linear-gradient(135deg,#fde6e2,#f8b4a8)">🍞<span class="demo2__product__off">10% OFF</span></div>
+              <div class="demo2__product__body">
+                <div class="demo2__product__name">Britannia Bread 400g</div>
+                <div class="demo2__product__price"><span class="demo2__product__sp">₹45</span><span class="demo2__product__mrp">₹50</span></div>
+              </div>
+            </button>
+            <button class="demo2__product" data-name="Tata Salt 1kg" data-price="26" data-mrp="28" data-emoji="🧂" data-c1="#e8eaf6" data-c2="#9fa8da" data-tax="5">
+              <div class="demo2__product__img" style="background:linear-gradient(135deg,#e8eaf6,#9fa8da)">🧂<span class="demo2__product__off">7% OFF</span></div>
+              <div class="demo2__product__body">
+                <div class="demo2__product__name">Tata Salt 1kg</div>
+                <div class="demo2__product__price"><span class="demo2__product__sp">₹26</span><span class="demo2__product__mrp">₹28</span></div>
+              </div>
+            </button>
+            <button class="demo2__product" data-name="Amul Milk 500ml" data-price="38" data-mrp="40" data-emoji="🥛" data-c1="#e3f2fd" data-c2="#90caf9" data-tax="5">
+              <div class="demo2__product__img" style="background:linear-gradient(135deg,#e3f2fd,#90caf9)">🥛<span class="demo2__product__off">5% OFF</span></div>
+              <div class="demo2__product__body">
+                <div class="demo2__product__name">Amul Milk 500ml</div>
+                <div class="demo2__product__price"><span class="demo2__product__sp">₹38</span><span class="demo2__product__mrp">₹40</span></div>
+              </div>
+            </button>
+            <button class="demo2__product" data-name="Parle-G 250g" data-price="32" data-mrp="35" data-emoji="🍪" data-c1="#fff8e1" data-c2="#ffe082" data-tax="5">
+              <div class="demo2__product__img" style="background:linear-gradient(135deg,#fff8e1,#ffe082)">🍪<span class="demo2__product__off">9% OFF</span></div>
+              <div class="demo2__product__body">
+                <div class="demo2__product__name">Parle-G Biscuits 250g</div>
+                <div class="demo2__product__price"><span class="demo2__product__sp">₹32</span><span class="demo2__product__mrp">₹35</span></div>
+              </div>
+            </button>
+          </div>
         </div>
 
-        <div class="demo__bill">
-          <div class="demo__bill__head">
-            <strong>Live bill</strong>
-            <span class="demo__bill__id">#INV-LIVE</span>
+        <!-- Bill (NewBill mini-replica) -->
+        <div class="demo2__bill">
+          <div class="demo2__bill__appbar">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#1565c0"><path d="M3 7h18v2H3zm0 4h18v2H3zm0 4h12v2H3z"/></svg>
+            <strong>New bill</strong>
+            <span class="m-chip m-chip--primary">#INV-LIVE</span>
           </div>
-          <div class="demo__bill__rows" id="demoRows">
-            <div class="demo__bill__empty">Click a product to add it →</div>
+          <div class="demo2__bill__items" id="demo2Rows">
+            <div class="demo2__bill__empty">Tap a product to start a bill</div>
           </div>
-          <div class="demo__bill__foot">
-            <div class="demo__bill__line">
-              <span>Items</span><span id="demoCount">0</span>
-            </div>
-            <div class="demo__bill__line demo__bill__line--total">
-              <span>Total</span><span>₹<span id="demoTotal">0</span></span>
-            </div>
-            <button class="btn btn--primary btn--block" id="demoReset">Clear &amp; start over</button>
+          <div class="demo2__bill__totals">
+            <div class="demo2__bill__totals__row"><span>Subtotal (<span id="demo2Count">0</span> items)</span><span>₹<span id="demo2Subtotal">0</span></span></div>
+            <div class="demo2__bill__totals__row"><span>Tax (incl.)</span><span>₹<span id="demo2Tax">0</span></span></div>
+            <div class="demo2__bill__totals__row"><span>You save</span><span style="color:var(--app-success)">₹<span id="demo2Savings">0</span></span></div>
+            <div class="demo2__bill__totals__row demo2__bill__totals__row--total"><span>Total</span><span>₹<span id="demo2Total">0</span></span></div>
           </div>
+          <button class="demo2__bill__btn" id="demo2Btn" disabled>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M5 20h14v-2H5v2zM19 9h-4V3H9v6H5l7 7 7-7z"/></svg>
+            Download PDF · share anywhere
+          </button>
+          <button class="m-btn m-btn--text" id="demo2Reset" style="cursor:pointer;align-self:center;font-size:11.5px;color:var(--app-text-3)">Clear bill</button>
         </div>
       </div>
     </section>
 
-    <!-- HOW IT WORKS -->
-    <section class="section section--dim">
-      <div class="section__head reveal">
-        <span class="eyebrow eyebrow--center"><span class="dot"></span> From signup to first bill</span>
-        <h2>Three steps. One coffee.</h2>
-      </div>
-
-      <ol class="steps">
-        <li class="step reveal">
-          <div class="step__num">01</div>
-          <h3>Sign in with email OTP</h3>
-          <p>No passwords, no PINs. We email a 6-digit code valid for 5 minutes.</p>
-        </li>
-        <li class="step reveal">
-          <div class="step__num">02</div>
-          <h3>Add your shop &amp; products</h3>
-          <p>Scan a barcode, search by name, or type the details. Set the price and tax — Gahki handles the rest.</p>
-        </li>
-        <li class="step reveal">
-          <div class="step__num">03</div>
-          <h3>Bill, share, repeat</h3>
-          <p>Generate PDF invoices on the spot. WhatsApp them to your customer.</p>
-        </li>
-      </ol>
-    </section>
-
-    <!-- COMPARISON -->
-    <section class="section">
-      <div class="section__head reveal">
-        <span class="eyebrow eyebrow--center"><span class="dot"></span> Why switch</span>
-        <h2>The pen-and-notebook era is over.</h2>
-      </div>
-
-      <div class="compare">
-        <div class="compare__col compare__col--old reveal">
-          <h3>The old way</h3>
-          <ul>
-            <li>📓 Diary entries lost in a drawer</li>
-            <li>📲 Calculator + WhatsApp text bills</li>
-            <li>❓ "Bhai, is this in stock?" calls</li>
-            <li>🧾 Hand-written invoices, no GST trail</li>
-            <li>💸 Setup fees, monthly minimums</li>
-          </ul>
-        </div>
-        <div class="compare__col compare__col--new reveal">
-          <h3>The Gahki way</h3>
-          <ul>
-            <li>⚡ Barcode-fast counter billing</li>
-            <li>📑 Branded PDF invoices, one tap</li>
-            <li>🛍️ A storefront on every WhatsApp share</li>
-            <li>📦 Stock that updates itself</li>
-            <li>💳 Predictable monthly pricing</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+    <!-- HOW IT WORKS / COMPARISON / DUAL APP — removed for brevity -->
 
     <!-- PRICING -->
     <section id="pricing" class="section">
@@ -630,22 +1031,6 @@
           </p>
         </details>
         <details class="faq__item reveal">
-          <summary>Will it work offline?</summary>
-          <p>
-            Gahki is an online platform — your stock stays in sync across the
-            counter and online store. A short outage during billing is queued
-            client-side and retried automatically.
-          </p>
-        </details>
-        <details class="faq__item reveal">
-          <summary>Is my data safe?</summary>
-          <p>
-            Yes. Each shop's data is isolated, sign-in is by email code only
-            (no passwords to leak), and we run on enterprise cloud infrastructure
-            with daily backups.
-          </p>
-        </details>
-        <details class="faq__item reveal">
           <summary>What about GST &amp; tax?</summary>
           <p>
             The price you set on each product is the final price your customer pays.
@@ -654,21 +1039,19 @@
           </p>
         </details>
         <details class="faq__item reveal">
-          <summary>How much does it cost?</summary>
-          <p>
-            Two plans: <strong>POS</strong> at ₹499/mo (counter billing, 200 products,
-            1,000 bills/month, 3 staff) and <strong>POS + Store</strong> at ₹1,499/mo
-            (online storefront, 2,000 products, 10,000 bills/month, 10 staff).
-            Limits reset on the 1st of every month (IST). Need different limits or
-            multi-shop? Ask us about a custom plan.
-          </p>
-        </details>
-        <details class="faq__item reveal">
           <summary>Can my customers re-order?</summary>
           <p>
             Yes. Flip on the storefront from your shop settings, share the
             <code>shop.gahki.in/your-shop</code> link, and customers can browse
             and place COD orders. You confirm them from the POS app.
+          </p>
+        </details>
+        <details class="faq__item reveal">
+          <summary>Is my data safe?</summary>
+          <p>
+            Each shop's data is isolated, sign-in is by email code only
+            (no passwords to leak), and we run on enterprise cloud infrastructure
+            with daily backups.
           </p>
         </details>
       </div>

@@ -108,76 +108,161 @@
     requestAnimationFrame(step);
   }
 
-  /* ---------- Interactive bill demo ---------- */
-  const demoRows = document.getElementById('demoRows');
-  const demoCount = document.getElementById('demoCount');
-  const demoTotal = document.getElementById('demoTotal');
-  const demoReset = document.getElementById('demoReset');
-  const demoButtons = document.querySelectorAll('.demo__product');
+  /* ---------- Interactive bill demo (realistic NewBill replica) ---------- */
+  const demo2Rows = document.getElementById('demo2Rows');
+  const demo2Count = document.getElementById('demo2Count');
+  const demo2Subtotal = document.getElementById('demo2Subtotal');
+  const demo2Tax = document.getElementById('demo2Tax');
+  const demo2Savings = document.getElementById('demo2Savings');
+  const demo2Total = document.getElementById('demo2Total');
+  const demo2Btn = document.getElementById('demo2Btn');
+  const demo2Reset = document.getElementById('demo2Reset');
+  const demo2Buttons = document.querySelectorAll('.demo2__product');
 
-  /** @type {Map<string, {name:string, price:number, qty:number}>} */
-  const cart = new Map();
-
-  const renderBill = () => {
-    if (!demoRows) return;
-    if (cart.size === 0) {
-      demoRows.innerHTML = '<div class="demo__bill__empty">Click a product to add it →</div>';
-      if (demoCount) demoCount.textContent = '0';
-      if (demoTotal) demoTotal.textContent = '0';
-      return;
-    }
-    let total = 0;
-    let count = 0;
-    const html = [];
-    cart.forEach((item) => {
-      const lineTotal = item.price * item.qty;
-      total += lineTotal;
-      count += item.qty;
-      html.push(
-        '<div class="demo__bill__row">' +
-          '<span class="demo__bill__row__name">' + escapeHtml(item.name) + '</span>' +
-          '<span class="demo__bill__row__qty">×' + item.qty + '</span>' +
-          '<span class="demo__bill__row__amt">₹' + lineTotal + '</span>' +
-        '</div>'
-      );
-    });
-    demoRows.innerHTML = html.join('');
-    if (demoCount) demoCount.textContent = String(count);
-    if (demoTotal) demoTotal.textContent = total.toLocaleString('en-IN');
-  };
+  /** Cart: name -> { name, price, mrp, emoji, qty, tax } */
+  const cart2 = new Map();
 
   const escapeHtml = (s) =>
     String(s).replace(/[&<>"']/g, (c) => ({
       '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
     })[c]);
 
-  demoButtons.forEach((btn) => {
+  const fmtINR = (n) => Math.round(n).toLocaleString('en-IN');
+  const fmtINR2 = (n) => (Math.round(n * 100) / 100).toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
+  const renderDemo2 = () => {
+    if (!demo2Rows) return;
+    if (cart2.size === 0) {
+      demo2Rows.innerHTML = '<div class="demo2__bill__empty">Tap a product to start a bill</div>';
+      if (demo2Count) demo2Count.textContent = '0';
+      if (demo2Subtotal) demo2Subtotal.textContent = '0';
+      if (demo2Tax) demo2Tax.textContent = '0';
+      if (demo2Savings) demo2Savings.textContent = '0';
+      if (demo2Total) demo2Total.textContent = '0';
+      if (demo2Btn) demo2Btn.disabled = true;
+      return;
+    }
+
+    let total = 0;
+    let count = 0;
+    let savings = 0;
+    let taxIncluded = 0; // tax inside SP
+    const html = [];
+    cart2.forEach((item, key) => {
+      const lineTotal = item.price * item.qty;
+      const lineSavings = (item.mrp - item.price) * item.qty;
+      // Tax-inclusive: tax = sp * (taxPct / (100 + taxPct))
+      const lineTax = lineTotal * (item.tax / (100 + item.tax));
+      total += lineTotal;
+      count += item.qty;
+      savings += lineSavings;
+      taxIncluded += lineTax;
+
+      html.push(
+        '<div class="demo2__bill__item">' +
+          '<div class="demo2__bill__item__name">' + escapeHtml(item.name) + '</div>' +
+          '<div class="demo2__bill__item__amt">₹' + fmtINR(lineTotal) + '</div>' +
+          '<div class="demo2__bill__item__meta">' + item.qty + ' × ₹' + item.price +
+            (item.tax ? ' · Tax ' + item.tax + '%' : '') +
+            (item.mrp > item.price ? ' · MRP ₹' + item.mrp : '') +
+          '</div>' +
+          '<div class="demo2__bill__item__qty">' +
+            '<button data-act="dec" data-key="' + escapeHtml(key) + '" aria-label="Decrease">−</button>' +
+            '<span>' + item.qty + '</span>' +
+            '<button data-act="inc" data-key="' + escapeHtml(key) + '" aria-label="Increase">+</button>' +
+          '</div>' +
+        '</div>'
+      );
+    });
+
+    demo2Rows.innerHTML = html.join('');
+    if (demo2Count) demo2Count.textContent = String(count);
+    if (demo2Subtotal) demo2Subtotal.textContent = fmtINR(total);
+    if (demo2Tax) demo2Tax.textContent = fmtINR2(taxIncluded);
+    if (demo2Savings) demo2Savings.textContent = fmtINR(savings);
+    if (demo2Total) demo2Total.textContent = fmtINR(total);
+    if (demo2Btn) demo2Btn.disabled = false;
+  };
+
+  demo2Buttons.forEach((btn) => {
     btn.addEventListener('click', () => {
       const name = btn.dataset.name || '';
       const price = parseInt(btn.dataset.price || '0', 10);
+      const mrp = parseInt(btn.dataset.mrp || btn.dataset.price || '0', 10);
+      const tax = parseInt(btn.dataset.tax || '0', 10);
       if (!name || !price) return;
-      const key = name;
-      const existing = cart.get(key);
+      const existing = cart2.get(name);
       if (existing) existing.qty += 1;
-      else cart.set(key, { name, price, qty: 1 });
-      renderBill();
-      // tiny tactile feedback
+      else cart2.set(name, { name, price, mrp, tax, qty: 1 });
+      renderDemo2();
       btn.animate(
-        [
-          { transform: 'translateY(-3px) scale(1)' },
-          { transform: 'translateY(-3px) scale(0.96)' },
-          { transform: 'translateY(-3px) scale(1)' },
-        ],
-        { duration: 220, easing: 'ease-out' }
+        [{ transform: 'translateY(-2px) scale(1)' }, { transform: 'translateY(-2px) scale(0.97)' }, { transform: 'translateY(-2px) scale(1)' }],
+        { duration: 200, easing: 'ease-out' }
       );
     });
   });
 
-  if (demoReset) {
-    demoReset.addEventListener('click', () => {
-      cart.clear();
-      renderBill();
+  // Delegated qty buttons
+  if (demo2Rows) {
+    demo2Rows.addEventListener('click', (e) => {
+      const target = e.target.closest('button[data-act]');
+      if (!target) return;
+      const key = target.dataset.key;
+      const act = target.dataset.act;
+      const item = cart2.get(key);
+      if (!item) return;
+      if (act === 'inc') item.qty += 1;
+      if (act === 'dec') {
+        item.qty -= 1;
+        if (item.qty <= 0) cart2.delete(key);
+      }
+      renderDemo2();
     });
+  }
+
+  if (demo2Reset) {
+    demo2Reset.addEventListener('click', () => {
+      cart2.clear();
+      renderDemo2();
+    });
+  }
+  if (demo2Btn) {
+    demo2Btn.addEventListener('click', () => {
+      if (demo2Btn.disabled) return;
+      const original = demo2Btn.innerHTML;
+      demo2Btn.style.background = 'var(--app-success)';
+      demo2Btn.innerHTML =
+        '<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.2l-3.5-3.5-1.4 1.4L9 19l11-11-1.4-1.4z"/></svg> PDF downloaded';
+      setTimeout(() => {
+        demo2Btn.style.background = '';
+        demo2Btn.innerHTML = original;
+      }, 1800);
+    });
+  }
+
+  /* ---------- Screens gallery (tabbed showcase) ---------- */
+  const screensRoot = document.querySelector('[data-screens]');
+  if (screensRoot) {
+    const tabs = screensRoot.querySelectorAll('.screens__item');
+    const allPanels = screensRoot.querySelectorAll('.screens__panel, .screens__panel--phone');
+    const activate = (key) => {
+      tabs.forEach((t) => t.classList.toggle('is-active', t.dataset.screen === key));
+      allPanels.forEach((p) => p.classList.toggle('is-active', p.dataset.screenPanel === key));
+    };
+    tabs.forEach((tab) => {
+      tab.addEventListener('click', () => activate(tab.dataset.screen));
+    });
+
+    // Auto-rotate slowly to invite interaction; pause on first user click
+    let userClicked = false;
+    tabs.forEach((tab) => tab.addEventListener('click', () => { userClicked = true; }));
+    const order = ['bills', 'stats', 'expiry', 'orders', 'store', 'tracking'];
+    let idx = 0;
+    setInterval(() => {
+      if (userClicked) return;
+      idx = (idx + 1) % order.length;
+      activate(order[idx]);
+    }, 4500);
   }
 
   /* ---------- Waitlist form (client-side) ---------- */
@@ -208,10 +293,11 @@
   const yr = document.getElementById('year');
   if (yr) yr.textContent = String(new Date().getFullYear());
 
-  /* ---------- Subtle parallax for hero phone ---------- */
-  const phone = document.querySelector('.phone');
+  /* ---------- Subtle parallax for hero composition ---------- */
+  const heroLaptop = document.querySelector('.hero-stage__laptop');
+  const heroPhone = document.querySelector('.hero-stage__phone');
   const heroVisual = document.querySelector('.hero__visual');
-  if (phone && heroVisual && window.matchMedia('(min-width: 980px)').matches) {
+  if (heroLaptop && heroVisual && window.matchMedia('(min-width: 980px)').matches) {
     let raf = 0;
     const onMove = (e) => {
       const rect = heroVisual.getBoundingClientRect();
@@ -221,38 +307,20 @@
       const dy = (e.clientY - cy) / rect.height;
       cancelAnimationFrame(raf);
       raf = requestAnimationFrame(() => {
-        phone.style.transform =
-          'rotateY(' + (dx * 8) + 'deg) rotateX(' + (-dy * 6) + 'deg)';
+        heroLaptop.style.transform =
+          'perspective(1200px) rotateY(' + (dx * 5) + 'deg) rotateX(' + (-dy * 4) + 'deg)';
+        if (heroPhone) {
+          heroPhone.style.transform =
+            'scale(0.78) translate3d(' + (dx * 12) + 'px,' + (dy * 12) + 'px, 0)';
+        }
       });
     };
     const onLeave = () => {
       cancelAnimationFrame(raf);
-      phone.style.transform = '';
+      heroLaptop.style.transform = '';
+      if (heroPhone) heroPhone.style.transform = '';
     };
     heroVisual.addEventListener('mousemove', onMove);
     heroVisual.addEventListener('mouseleave', onLeave);
-  }
-
-  /* ---------- Dual-bridge live stock ticker ----------
-     Tiny animation that nudges the "in stock" number on the bridge core,
-     reinforcing the "live sync" message visually without being distracting.
-     Decrements on the sale-packet animation cycle, increments on the order
-     cycle so it stays roughly stable around the start value.
-     -------------------------------------------------- */
-  const stockEl = document.getElementById('bridgeStockNum');
-  if (stockEl) {
-    let n = parseInt(stockEl.textContent || '128', 10) || 128;
-    setInterval(() => {
-      // The two packets fire 2s apart; a 4s tick alternates -2 / +1 nicely.
-      n = n - 2;
-      stockEl.textContent = n;
-      setTimeout(() => {
-        n = n + 1;
-        stockEl.textContent = n;
-      }, 2000);
-      // Keep the number in a believable range so it doesn't drift to absurd values.
-      if (n < 80) n = 128;
-      if (n > 200) n = 128;
-    }, 4000);
   }
 })();
