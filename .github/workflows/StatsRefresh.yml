@@ -41,16 +41,16 @@ jobs:
           SHOP_ID: ${{ github.event.inputs.shop_id }}
         run: |
           set -euo pipefail
-          if [ -z "${API_KEY:-}" ]; then
+          if [ -z "${GAHKI_API_KEY:-}" ]; then
             echo "::error::GAHKI_API_KEY secret is not set."
             exit 1
           fi
-          if [ -z "${API_BASE_URL:-}" ]; then
+          if [ -z "${GAHKI_API_BASE_URL:-}" ]; then
             echo "::error::GAHKI_API_BASE_URL variable is not set."
             exit 1
           fi
 
-          URL="${API_BASE_URL}/api/jobs/usage-refresh"
+          URL="${GAHKI_API_BASE_URL}/api/jobs/usage-refresh"
           if [ -n "${SHOP_ID:-}" ]; then
             URL="${URL}?shopId=${SHOP_ID}"
           fi
