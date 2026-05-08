@@ -3742,3 +3742,68 @@ ul {
   .brand__mark svg { width: 26px; height: 26px; }
   .nav__cta .btn--primary { padding: 9px 16px; font-size: 13.5px; }
 }
+
+
+/* =========================================================
+   Story polish — mobile time/tag inline, connecting line cleanup
+   ========================================================= */
+/* Put the timestamp and tag on the same row inside each act card */
+.act__head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+/* If still using direct children, pair them via grouping */
+.act > .act__time + .act__tag {
+  margin-top: -8px;        /* visually align next to the time pill */
+  align-self: flex-start;
+}
+@media (min-width: 600px) {
+  .act > .act__time + .act__tag { margin-top: 0; }
+}
+
+/* Hide connecting line on tablet too (it only made sense at 3-up desktop) */
+@media (max-width: 1100px) {
+  .story__acts::before { display: none; }
+}
+
+
+/* =========================================================
+   Mobile top bar v2 — push CTA hard right, bigger brand
+   Uses high-specificity selectors so it wins the cascade.
+   ========================================================= */
+@media (max-width: 900px) {
+  header.nav {
+    padding: 8px 8px 8px 16px !important;
+    gap: 0 !important;
+    justify-content: space-between !important;
+  }
+  header.nav .brand {
+    font-size: 22px !important;
+    gap: 12px !important;
+    flex-shrink: 0;
+    margin-right: auto;          /* push everything else to the right */
+  }
+  header.nav .brand__mark svg {
+    width: 32px !important;
+    height: 32px !important;
+  }
+  header.nav .nav__links { display: none !important; }
+  header.nav::after { display: none !important; } /* remove earlier flex spacer */
+  header.nav .nav__cta {
+    margin-left: 0 !important;
+    flex-shrink: 0;
+  }
+  header.nav .nav__cta .btn--ghost { display: none !important; }
+  header.nav .nav__cta .btn--primary {
+    padding: 7px 14px !important;
+    font-size: 12.5px !important;
+  }
+}
+
+@media (max-width: 600px) {
+  header.nav .brand { font-size: 20px !important; gap: 10px !important; }
+  header.nav .brand__mark svg { width: 28px !important; height: 28px !important; }
+  header.nav .nav__cta .btn--primary { padding: 6px 12px !important; font-size: 12px !important; }
+}

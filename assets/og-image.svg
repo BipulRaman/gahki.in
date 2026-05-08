@@ -1,0 +1,216 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-labelledby="title desc">
+  <title id="title">Gahki — Run your shop from your phone</title>
+  <desc id="desc">A pocket POS for the counter and an online storefront for your customers, sharing one inventory.</desc>
+
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0e27"/>
+      <stop offset="100%" stop-color="#11163a"/>
+    </linearGradient>
+    <linearGradient id="brand" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#7cf5c8"/>
+      <stop offset="100%" stop-color="#4ea0ff"/>
+    </linearGradient>
+    <radialGradient id="orb1" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#4ea0ff" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#4ea0ff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="orb2" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#7cf5c8" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#7cf5c8" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="orb3" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="textGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#7cf5c8"/>
+      <stop offset="60%" stop-color="#4ea0ff"/>
+      <stop offset="100%" stop-color="#8b5cf6"/>
+    </linearGradient>
+    <pattern id="grid" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#ffffff" stroke-opacity="0.04" stroke-width="1"/>
+    </pattern>
+    <filter id="cardShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="14" stdDeviation="22" flood-color="#000000" flood-opacity="0.45"/>
+    </filter>
+  </defs>
+
+  <!-- BACKDROP -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  <ellipse cx="120" cy="120" rx="280" ry="280" fill="url(#orb1)"/>
+  <ellipse cx="1080" cy="540" rx="320" ry="320" fill="url(#orb2)"/>
+  <ellipse cx="800" cy="120" rx="220" ry="220" fill="url(#orb3)"/>
+
+  <!-- BRAND ROW -->
+  <g transform="translate(64, 60)">
+    <rect x="0" y="0" width="56" height="56" rx="13" fill="#0a0e27" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+    <rect x="6" y="14" width="44" height="28" rx="7" fill="url(#brand)"/>
+    <g fill="#0a0e27">
+      <rect x="11" y="19" width="3" height="18"/>
+      <rect x="16" y="19" width="2" height="18"/>
+      <rect x="20" y="19" width="5" height="18"/>
+      <rect x="27" y="19" width="2" height="18"/>
+      <rect x="31" y="19" width="3" height="18"/>
+      <rect x="36" y="19" width="5" height="18"/>
+      <rect x="43" y="19" width="2" height="18"/>
+    </g>
+    <text x="76" y="40"
+          font-family="'Space Grotesk', 'Inter', -apple-system, system-ui, sans-serif"
+          font-size="34" font-weight="700" fill="#e8edff" letter-spacing="-0.5">
+      Gahki
+    </text>
+    <g transform="translate(190, 14)">
+      <rect x="0" y="0" width="310" height="34" rx="17" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.10)"/>
+      <circle cx="18" cy="17" r="4" fill="#00f5a0"/>
+      <text x="32" y="22"
+            font-family="'Inter', sans-serif" font-size="12" font-weight="600"
+            letter-spacing="1.4" fill="#a2a9c9">
+        BUILT FOR INDIA'S SMALL SHOPS
+      </text>
+    </g>
+  </g>
+
+  <!-- HEADLINE -->
+  <g transform="translate(64, 220)">
+    <text font-family="'Space Grotesk', 'Inter', sans-serif"
+          font-size="84" font-weight="700" fill="#e8edff" letter-spacing="-2.4">
+      <tspan x="0" dy="0">Run your shop</tspan>
+    </text>
+    <text font-family="'Space Grotesk', 'Inter', sans-serif"
+          font-size="84" font-weight="700" letter-spacing="-2.4" fill="url(#textGrad)">
+      <tspan x="0" dy="92">from your phone.</tspan>
+    </text>
+
+    <text x="0" y="246" font-family="'Inter', sans-serif"
+          font-size="22" font-weight="400" fill="#a2a9c9">
+      <tspan x="0" dy="0">Counter + storefront, sharing one</tspan>
+      <tspan x="0" dy="32">live inventory. Built for India's shops.</tspan>
+    </text>
+  </g>
+
+  <!-- LAPTOP / BROWSER (POS New Bill) -->
+  <g transform="translate(720, 200)" filter="url(#cardShadow)">
+    <rect x="0" y="0" width="380" height="240" rx="14" fill="#f5f6fa"/>
+    <rect x="0" y="0" width="380" height="30" rx="14" fill="#dadbe2"/>
+    <rect x="0" y="16" width="380" height="14" fill="#dadbe2"/>
+    <circle cx="14" cy="15" r="4" fill="#ff5f57"/>
+    <circle cx="28" cy="15" r="4" fill="#febc2e"/>
+    <circle cx="42" cy="15" r="4" fill="#28c840"/>
+    <rect x="58" y="9" width="160" height="13" rx="3" fill="#ffffff"/>
+    <text x="70" y="19" font-family="'JetBrains Mono', ui-monospace, monospace"
+          font-size="9" fill="#475067">bill.gahki.in/bills/new</text>
+
+    <rect x="0" y="30" width="380" height="36" fill="#ffffff"/>
+    <rect x="14" y="40" width="20" height="16" rx="4" fill="#1565c0"/>
+    <text x="40" y="52" font-family="'Inter', sans-serif" font-size="12" font-weight="700" fill="#1f2128">New bill</text>
+    <text x="40" y="63" font-family="'Inter', sans-serif" font-size="9" fill="#5f6368">Krishna Mart</text>
+    <rect x="316" y="42" width="50" height="16" rx="8" fill="#e8f5e9"/>
+    <circle cx="324" cy="50" r="3" fill="#2e7d32"/>
+    <text x="332" y="53" font-family="'Inter', sans-serif" font-size="9" font-weight="700" fill="#2e7d32">Live</text>
+
+    <g transform="translate(14, 78)">
+      <rect x="0" y="0" width="220" height="36" rx="6" fill="#ffffff" stroke="#0001"/>
+      <rect x="0" y="0" width="3" height="36" fill="#1565c0"/>
+      <text x="10" y="14" font-family="'Inter', sans-serif" font-size="11" font-weight="600" fill="#1f2128">Amul Butter 100g</text>
+      <text x="10" y="28" font-family="'Inter', sans-serif" font-size="9" fill="#9aa0a6">2 × ₹56 · Tax 5%</text>
+      <text x="200" y="22" font-family="'Space Grotesk', sans-serif" font-size="12" font-weight="700" fill="#1f2128" text-anchor="end">₹112</text>
+
+      <rect x="0" y="42" width="220" height="36" rx="6" fill="#ffffff" stroke="#0001"/>
+      <rect x="0" y="42" width="3" height="36" fill="#1565c0"/>
+      <text x="10" y="56" font-family="'Inter', sans-serif" font-size="11" font-weight="600" fill="#1f2128">Basmati Rice 1kg</text>
+      <text x="10" y="70" font-family="'Inter', sans-serif" font-size="9" fill="#9aa0a6">1 × ₹180 · Save ₹20</text>
+      <text x="200" y="64" font-family="'Space Grotesk', sans-serif" font-size="12" font-weight="700" fill="#1f2128" text-anchor="end">₹180</text>
+
+      <rect x="0" y="84" width="220" height="36" rx="6" fill="#ffffff" stroke="#0001"/>
+      <rect x="0" y="84" width="3" height="36" fill="#1565c0"/>
+      <text x="10" y="98" font-family="'Inter', sans-serif" font-size="11" font-weight="600" fill="#1f2128">Britannia Bread</text>
+      <text x="10" y="112" font-family="'Inter', sans-serif" font-size="9" fill="#9aa0a6">2 × ₹50 · Tax 5%</text>
+      <text x="200" y="106" font-family="'Space Grotesk', sans-serif" font-size="12" font-weight="700" fill="#1f2128" text-anchor="end">₹100</text>
+    </g>
+
+    <g transform="translate(248, 78)">
+      <rect x="0" y="0" width="118" height="146" rx="8" fill="#ffffff" stroke="#0001"/>
+      <text x="10" y="18" font-family="'Inter', sans-serif" font-size="9" font-weight="700"
+            letter-spacing="0.6" fill="#5f6368">BILL SUMMARY</text>
+      <text x="10" y="38" font-family="'Inter', sans-serif" font-size="10" fill="#5f6368">Subtotal</text>
+      <text x="108" y="38" font-family="'Inter', sans-serif" font-size="10" fill="#1f2128" text-anchor="end">₹392</text>
+      <text x="10" y="54" font-family="'Inter', sans-serif" font-size="10" fill="#5f6368">Discount</text>
+      <text x="108" y="54" font-family="'Inter', sans-serif" font-size="10" fill="#2e7d32" text-anchor="end">−₹12</text>
+      <line x1="10" y1="64" x2="108" y2="64" stroke="#0002" stroke-dasharray="2 2"/>
+      <text x="10" y="86" font-family="'Space Grotesk', sans-serif" font-size="14" font-weight="700" fill="#1f2128">Total</text>
+      <text x="108" y="86" font-family="'Space Grotesk', sans-serif" font-size="16" font-weight="700" fill="#1565c0" text-anchor="end">₹380</text>
+      <rect x="10" y="100" width="98" height="32" rx="6" fill="#1565c0"/>
+      <text x="59" y="120" font-family="'Inter', sans-serif" font-size="11" font-weight="700"
+            fill="#ffffff" text-anchor="middle">Create</text>
+    </g>
+  </g>
+
+  <!-- PHONE (Storefront) -->
+  <g transform="translate(560, 320)" filter="url(#cardShadow)">
+    <rect x="0" y="0" width="160" height="280" rx="22" fill="#1c1d22" stroke="#2a2c33" stroke-width="2"/>
+    <rect x="6" y="6" width="148" height="268" rx="18" fill="#f5f6fa"/>
+    <text x="20" y="22" font-family="'Inter', sans-serif" font-size="9" font-weight="700" fill="#1f2128">9:41</text>
+    <rect x="6" y="28" width="148" height="30" fill="#2d5016"/>
+    <rect x="14" y="36" width="14" height="14" rx="3" fill="#ffffff"/>
+    <text x="34" y="48" font-family="'Inter', sans-serif" font-size="10" font-weight="700" fill="#ffffff">Krishna Mart</text>
+    <circle cx="138" cy="43" r="9" fill="#ffffff" fill-opacity="0.2"/>
+    <circle cx="143" cy="38" r="5" fill="#d32f2f"/>
+    <text x="143" y="41" font-family="'Inter', sans-serif" font-size="6" font-weight="700" fill="#fff" text-anchor="middle">3</text>
+
+    <g transform="translate(14, 70)">
+      <rect x="0" y="0" width="62" height="80" rx="8" fill="#ffffff" stroke="#0001"/>
+      <rect x="0" y="0" width="62" height="40" rx="8" fill="#fff7d6"/>
+      <text x="31" y="28" font-size="20" text-anchor="middle">🧈</text>
+      <text x="6" y="55" font-family="'Inter', sans-serif" font-size="8" font-weight="600" fill="#1f2128">Amul Butter</text>
+      <text x="6" y="68" font-family="'Space Grotesk', sans-serif" font-size="10" font-weight="700" fill="#2d5016">₹56</text>
+      <text x="36" y="68" font-family="'Inter', sans-serif" font-size="7" fill="#9aa0a6" text-decoration="line-through">₹60</text>
+
+      <rect x="68" y="0" width="62" height="80" rx="8" fill="#ffffff" stroke="#0001"/>
+      <rect x="68" y="0" width="62" height="40" rx="8" fill="#e3f2fd"/>
+      <text x="99" y="28" font-size="20" text-anchor="middle">🥛</text>
+      <text x="74" y="55" font-family="'Inter', sans-serif" font-size="8" font-weight="600" fill="#1f2128">Amul Milk</text>
+      <text x="74" y="68" font-family="'Space Grotesk', sans-serif" font-size="10" font-weight="700" fill="#2d5016">₹38</text>
+      <text x="104" y="68" font-family="'Inter', sans-serif" font-size="7" fill="#9aa0a6" text-decoration="line-through">₹40</text>
+
+      <rect x="0" y="86" width="62" height="80" rx="8" fill="#ffffff" stroke="#0001"/>
+      <rect x="0" y="86" width="62" height="40" rx="8" fill="#fde6e2"/>
+      <text x="31" y="114" font-size="20" text-anchor="middle">🍞</text>
+      <text x="6" y="141" font-family="'Inter', sans-serif" font-size="8" font-weight="600" fill="#1f2128">Bread</text>
+      <text x="6" y="154" font-family="'Space Grotesk', sans-serif" font-size="10" font-weight="700" fill="#2d5016">₹50</text>
+
+      <rect x="68" y="86" width="62" height="80" rx="8" fill="#ffffff" stroke="#0001"/>
+      <rect x="68" y="86" width="62" height="40" rx="8" fill="#fff3e0"/>
+      <text x="99" y="114" font-size="20" text-anchor="middle">🍪</text>
+      <text x="74" y="141" font-family="'Inter', sans-serif" font-size="8" font-weight="600" fill="#1f2128">Parle-G</text>
+      <text x="74" y="154" font-family="'Space Grotesk', sans-serif" font-size="10" font-weight="700" fill="#2d5016">₹32</text>
+    </g>
+
+    <rect x="6" y="240" width="148" height="34" rx="0" fill="#ffffff"/>
+    <text x="14" y="258" font-family="'Space Grotesk', sans-serif" font-size="12" font-weight="700" fill="#1f2128">₹380</text>
+    <rect x="76" y="246" width="74" height="22" rx="11" fill="#2d5016"/>
+    <text x="113" y="261" font-family="'Inter', sans-serif" font-size="9" font-weight="700" fill="#ffffff" text-anchor="middle">Checkout</text>
+  </g>
+
+  <!-- URL footer -->
+  <text x="64" y="540" font-family="'JetBrains Mono', ui-monospace, monospace"
+        font-size="16" font-weight="600" fill="#7cf5c8">
+    bill.gahki.in
+  </text>
+  <text x="220" y="540" font-family="'Inter', sans-serif" font-size="14" fill="#6b7299">·</text>
+  <text x="240" y="540" font-family="'JetBrains Mono', ui-monospace, monospace"
+        font-size="16" font-weight="600" fill="#4ea0ff">
+    shop.gahki.in
+  </text>
+
+  <!-- Live-sync pill (bottom-left, clear of phone) -->
+  <g transform="translate(64, 580)">
+    <rect x="0" y="0" width="240" height="26" rx="13" fill="rgba(8,12,30,0.9)" stroke="rgba(124,245,200,0.45)"/>
+    <circle cx="14" cy="13" r="4" fill="#7cf5c8"/>
+    <text x="26" y="17" font-family="'JetBrains Mono', ui-monospace, monospace"
+          font-size="10" font-weight="700" fill="#7cf5c8" letter-spacing="1">
+      ONE INVENTORY · LIVE SYNC
+    </text>
+  </g>
+</svg>
