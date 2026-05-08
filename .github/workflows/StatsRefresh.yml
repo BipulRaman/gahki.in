@@ -22,7 +22,7 @@ jobs:
     steps:
       - name: Submit refresh job
         env:
-          BASE: ${{ vars.GAHKI_API_BASE_URL }}
+          BASE: ${{ secrets.GAHKI_API_BASE_URL }}
           KEY:  ${{ secrets.GAHKI_API_KEY }}
           SHOP: ${{ github.event.inputs.shop_id }}
         run: |
